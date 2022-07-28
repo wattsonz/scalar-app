@@ -1,23 +1,39 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useState } from 'react'
 import Layout from '../components/layout';
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../redux/actions";
+import { useSession, signIn, signOut, getSession } from "next-auth/react"
 
 type Props = {}
 
 export default function Login({ }: Props): ReactElement {
 
-    const dispatch: any = useDispatch();
-    const authReducer = useSelector(({ authReducer }) => authReducer);
+    // const dispatch: any = useDispatch();
+    // const authReducer = useSelector(({ authReducer }) => authReducer);
+    const { data: session } = useSession()
+    console.log(session);
 
+    if (session) {
+        return (
+            <>
+                Signed in as {session.user.email} <br />
+                <button onClick={() => signOut()}>Sign out</button>
+            </>
+        )
+    }
     return (
-        <Layout>
-            <h1>login</h1>
-            <button onClick={() => {
-                dispatch(actions.login({ username: "admin", password: "1234" }))
-            }}>Login</button>
-            <span>{authReducer.token ? authReducer.token : ""}</span>
-            <span>{authReducer.token ? authReducer.user.username : ""}</span>
-        </Layout>
+        <>
+            Not signed in <br />
+            <button onClick={() => signIn()}>Sign in</button>
+        </>
     )
 }
+
+export async function getServerSideProps(context) {
+
+    const session = await getSession(context)
+    return {
+        props: { session },
+    }
+}
+
