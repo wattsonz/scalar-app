@@ -3,6 +3,7 @@ import { Carousel } from 'react-bootstrap'
 import Layout from '../components/layout'
 import Image from 'next/image'
 import Head from 'next/head'
+import Products from './module/products'
 import Button from '@mui/material/Button';
 
 type Props = {}
@@ -59,8 +60,11 @@ export default function index({ }: Props): ReactElement {
       </Carousel>
 
       {/* Content */}
-
+      <div>
+        <Products/>
+      </div>
       {/* Content */}
+
     </Layout>
 
   )
