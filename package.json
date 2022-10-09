@@ -37,6 +37,7 @@
     "next-absolute-url": "^1.2.2",
     "next-auth": "^4.10.1",
     "next-redux-wrapper": "^7.0.5",
+    "nodemailer": "^6",
     "postcss-cli": "^9.1.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.4.0",
@@ -45,7 +46,8 @@
     "react-redux": "^8.0.1",
     "react-script-tag": "^1.1.2",
     "redux-devtools-extension": "^2.13.9",
-    "redux-thunk": "^2.4.1"
+    "redux-thunk": "^2.4.1",
+    "sharp": "^0.31.1"
   },
   "devDependencies": {
     "@types/node": "^17.0.32",

@@ -8,6 +8,8 @@ import 'jquery/dist/jquery.min.js';
 import SSRProvider from 'react-bootstrap/SSRProvider'
 import '../styles/globals.css'
 import { SessionProvider } from "next-auth/react"
+import { Provider } from 'react-redux';
+import { store } from '../store/store'
 interface Props {
 
 }
@@ -16,11 +18,13 @@ function _app({ Component, pageProps: { session, ...pageProps } }: AppProps) {
 
   return (
     <SessionProvider session={session}>
-      <SSRProvider>
-        <Component {...pageProps} />
-      </SSRProvider>
+      <Provider store={store}>
+        <SSRProvider>
+          <Component {...pageProps} />
+        </SSRProvider>
+      </Provider>
     </SessionProvider>
   )
 }
 
-export default wrapper.withRedux(_app);
+export default _app;
