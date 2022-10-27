@@ -1,18 +1,55 @@
-import React, { ReactElement } from 'react'
-import { Carousel } from 'react-bootstrap'
-import Layout from '../components/layout'
-import Image from 'next/image'
-import Head from 'next/head'
-import Products from './module/products'
-import Button from '@mui/material/Button';
+import Link from 'next/link';
+import Head from 'next/head';
+import styled from 'styled-components';
 
 type Props = {}
 
-export default function index({ }: Props): ReactElement {
+const Div = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  text-align: center;
+  /* background-color: coral; */
+
+  .title {
+    font-size: 64px;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    @media (max-width: 640px) {
+      font-size: 56px;
+    }
+  }
+
+  .text {
+    margin-top: 30px;
+  }
+
+  a {
+    display: block;
+    margin-top: 40px;
+    padding: 14px 42px;
+    text-decoration: none;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    background: #8e2de2;
+    background: -webkit-linear-gradient(to right, #e2a32d, #e06500);
+    background: linear-gradient(to right, #e2a32d, #e06500);
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+export default function index({ }: Props) {
+
   return (
-    <Layout>
+    <>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Scala Market</title>
       </Head>
       <Carousel>
         <Carousel.Item>
@@ -60,11 +97,8 @@ export default function index({ }: Props): ReactElement {
       </Carousel>
 
       {/* Content */}
-      <div>
-        <Products/>
-      </div>
-      {/* Content */}
 
+      {/* Content */}
     </Layout>
 
   )

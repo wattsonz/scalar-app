@@ -1,12 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 
-import testReducer from "./slices/testSlice";
-// import counter2Reducer from "./slices/counter2Slice";
+// import testReducer from "./slices/testSlice";
+import filterReducer from "./slices/filterSlice";
+import cartReducer from "./slices/cartSlice";
+import authReducer from "./slices/authSlice";
 
 const reducer = {
-  testReducer,
-  // counter2Reducer,
+  auth: authReducer,
+  filter: filterReducer,
+  cart: cartReducer,
+  // testReducer,
 };
 
 export const store = configureStore({
