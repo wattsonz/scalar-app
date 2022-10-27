@@ -35,11 +35,11 @@ const customStyles = {
     option: (provided, state) => ({
         ...provided,
         border: 'none',
-        backgroundColor: state.isSelected ? '#4a00e0' : 'white',
+        backgroundColor: state.isSelected ? '#e2a32d' : 'white',
         cursor: 'pointer',
         ':active': {
             ...provided[':active'],
-            backgroundColor: state.isSelected ? '#4a00e0' : '#f4f4f4',
+            backgroundColor: state.isSelected ? '#e2a32d' : '#f4f4f4',
         },
     }),
     placeholder: (provided) => ({

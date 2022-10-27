@@ -21,8 +21,8 @@ const Button = styled.button`
   cursor: pointer;
 
   &.checked {
-    border-color: #4a00e0;
-    background-color: #4a00e0;
+    border-color: #e2a32d;
+    background-color: #e2a32d;
     color: white;
     display: flex;
     justify-content: center;

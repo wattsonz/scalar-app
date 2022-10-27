@@ -12,6 +12,7 @@ const Div = styled.div`
   align-items: center;
   padding: 16px;
   text-align: center;
+  /* background-color: coral; */
 
   .title {
     font-size: 64px;
@@ -36,8 +37,8 @@ const Div = styled.div`
     border: none;
     border-radius: 10px;
     background: #8e2de2;
-    background: -webkit-linear-gradient(to right, #8e2de2, #4a00e0);
-    background: linear-gradient(to right, #8e2de2, #4a00e0);
+    background: -webkit-linear-gradient(to right, #e2a32d, #e06500);
+    background: linear-gradient(to right, #e2a32d, #e06500);
     color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
@@ -53,7 +54,7 @@ export default function index({ }: Props) {
       <Div>
         <p className="title">Never stop, Ever.</p>
         <p className="text">ネバー・ストップ・エバー</p>
-        <Link href="/browse">절대 멈추지 않아</Link>
+        <Link href="/browse">BUY NOW !!</Link>
       </Div>
     </>
 

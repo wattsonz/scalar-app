@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   *::selection {
-    background-color: #f29999;
+    background-color: #e2a32d;
   }
 `;
 

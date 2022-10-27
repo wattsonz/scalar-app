@@ -18,7 +18,7 @@ type Props = {
 
 const MainNav = styled.div`
   font-size: 14px;
-  background-color: #f4f4f4;
+  background-color: #e2a32d;
   padding: 16px;
   text-align: center;
 
@@ -28,7 +28,7 @@ const MainNav = styled.div`
   }
 
   span {
-    color: #999;
+    color: #eff5bd;
   }
 `;
 
@@ -65,7 +65,7 @@ const Div = styled.div`
     .clothes {
       margin: 16px 0;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
   }
