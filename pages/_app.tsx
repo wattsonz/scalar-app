@@ -1,29 +1,55 @@
 import * as React from 'react';
 import { AppProps } from 'next/app'
-import { wrapper } from '../redux';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'font-awesome/css/font-awesome.min.css';
-import 'boxicons/css/boxicons.min.css';
-import 'jquery/dist/jquery.min.js';
-import SSRProvider from 'react-bootstrap/SSRProvider'
-import '../styles/globals.css'
-import { SessionProvider } from "next-auth/react"
 import { Provider } from 'react-redux';
-import { store } from '../store/store'
-interface Props {
+import styled, { createGlobalStyle } from 'styled-components';
 
-}
+import { store } from '../store/store'
+import NavBar from '../components/NavBar'
+import ReduxFirebaseProvider from '../components/ReduxFirebaseProvider'
+
+interface Props { }
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;               
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  *::selection {
+    background-color: #f29999;
+  }
+`;
+
+const Container = styled.div`
+  min-height: 100vh;
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+`;
 
 function _app({ Component, pageProps: { session, ...pageProps } }: AppProps) {
 
   return (
-    <SessionProvider session={session}>
-      <Provider store={store}>
-        <SSRProvider>
-          <Component {...pageProps} />
-        </SSRProvider>
-      </Provider>
-    </SessionProvider>
+    <>
+      <GlobalStyle />
+      <Container>
+        <Provider store={store}>
+          <ReduxFirebaseProvider>
+            <NavBar />
+            <Component {...pageProps} />
+          </ReduxFirebaseProvider>
+        </Provider>
+      </Container>
+    </>
   )
 }
 
