@@ -47,11 +47,7 @@
     "react-script-tag": "^1.1.2",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
-<<<<<<< HEAD
-    "yarn": "^1.22.19"
-=======
     "sharp": "^0.31.1"
->>>>>>> guy
   },
   "devDependencies": {
     "@types/node": "^17.0.32",
