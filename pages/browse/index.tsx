@@ -17,10 +17,23 @@ type Props = {
 }
 
 const MainNav = styled.div`
-  font-size: 14px;
-  background-color: #e2a32d;
+  font-size: 20px;
+  background-color: #e06500;
+  background: -webkit-linear-gradient(to right, #eeee4b9c, #e06500);
+    background: linear-gradient(to right, #eeee4b9c, #e06500);
   padding: 16px;
   text-align: center;
+  border-radius: 30px;
+  
+
+  display: center;
+	align-items: center;
+	position: sticky;
+	top: -5px;
+	z-index: 2;
+	height: 70px;
+	min-height: 70px;
+	width: 100%;
 
   a {
     text-decoration: none;

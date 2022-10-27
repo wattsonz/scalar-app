@@ -37,8 +37,8 @@ const Div = styled.div`
     border: none;
     border-radius: 10px;
     background: #8e2de2;
-    background: -webkit-linear-gradient(to right, #e2a32d, #e06500);
-    background: linear-gradient(to right, #e2a32d, #e06500);
+    background: -webkit-linear-gradient(to right, #6db3899c, #e06500);
+    background: linear-gradient(to right, #6db3899c, #e06500);
     color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
