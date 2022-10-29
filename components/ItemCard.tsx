@@ -14,8 +14,11 @@ type Props = {
 }
 
 const Div = styled.div`
-  border: 1px #eee solid;
+  border: 1px #ebebeb solid;
+  /* border-radius: 30px; */
+  border-radius: 15px/ 0px 0em 15px 15px;
   font-size: 14px;
+  box-shadow: #ebebeb 0px 0px 10px;
 
   a {
     text-decoration: none;

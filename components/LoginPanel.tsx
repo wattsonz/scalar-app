@@ -5,7 +5,7 @@ import OutsideClickHandler from 'react-outside-click-handler';
 
 type Props = {
   onClose: any
-  onSignOut: any
+  onLogOut: any
 }
 
 const Div = styled.div`
@@ -32,13 +32,17 @@ const Div = styled.div`
       margin-top: 4px;
     }
 
-    .sign {
+    .login {
       display: inline-block;
-      border: 1px #4a00e0 solid;
-      border-radius: 6px;
-      color: #4a00e0;
+      /* border: 2px #e06500 solid; */
+      border-radius: 50px;
+      color: white;
+      background: #6db3899c;
+    background: -webkit-linear-gradient(to right, #6db3899c, #e06500);
+    background: linear-gradient(to right, #6db3899c, #e06500);
       padding: 4px 12px;
       margin: 10px 0 6px 0;
+      font-weight: 450;
       cursor: pointer;
     }
   }
@@ -58,7 +62,7 @@ const Div = styled.div`
   }
 `;
 
-export default function LoginPanel({ onClose, onSignOut }: Props) {
+export default function LoginPanel({ onClose, onLogOut }: Props) {
   const router = useRouter();
   const user = useSelector((state: any) => state.auth.user);
 
@@ -89,23 +93,23 @@ export default function LoginPanel({ onClose, onSignOut }: Props) {
           ) : (
             <>
               <p>Welcome</p>
-              <p>for more accessible,</p>
-              <div className="sign" onClick={loginHandler}>
-                Login
+              <p>for more accessible.</p>
+              <div className="login" onClick={loginHandler}>
+                Log In
               </div>
             </>
           )}
         </div>
         <div className="divider"></div>
         <div className="item" onClick={collectionsHandler}>
-          Showcase
+          Browse
         </div>
         <div className="item" onClick={cartHandler}>
           Cart
         </div>
         {user && (
-          <div className="item" onClick={onSignOut}>
-            Sign Out
+          <div className="item" onClick={onLogOut}>
+            Log Out
           </div>
         )}
       </OutsideClickHandler>

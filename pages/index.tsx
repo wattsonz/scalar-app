@@ -12,12 +12,18 @@ const Div = styled.div`
   align-items: center;
   padding: 16px;
   text-align: center;
-  /* background-color: coral; */
+  background-color: #fceed3;
+  /* border-radius: 50px; */
+  border-radius: 50px/ 50px 50px 0px 0px;
 
   .title {
     font-size: 64px;
     font-weight: 600;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #000000 50%, #ff8c00 100%);
+    background-clip: text;
+	  -webkit-text-fill-color: transparent;
+    font-weight: bold;
 
     @media (max-width: 640px) {
       font-size: 56px;
@@ -33,28 +39,40 @@ const Div = styled.div`
     margin-top: 40px;
     padding: 14px 42px;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 400;
     border: none;
-    border-radius: 10px;
-    background: #8e2de2;
+    border-radius: 50px;
+    background: #6db3899c;
     background: -webkit-linear-gradient(to right, #6db3899c, #e06500);
     background: linear-gradient(to right, #6db3899c, #e06500);
     color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    span {
+      font-size: 20px;
+      font-weight: bold;
+    }
   }
+
+  span {
+  /* position: relative; */
+  /* z-index: 3; */
+  background-image: linear-gradient(transparent 64px, #F243B3 50%, #FFCA47 100%);
+}
+
 `;
 
-export default function index({ }: Props) {
+export default function Home({ }: Props) {
 
   return (
     <>
       <Head>
-        <title>Scala Market</title>
+        <title>scalar | Online Shopping</title>
       </Head>
       <Div>
-        <p className="title">Never stop, Ever.</p>
+        <p className="title"><span>Never stop, Ever.</span></p>
         <p className="text">ネバー・ストップ・エバー</p>
-        <Link href="/browse">BUY NOW !!</Link>
+        <Link href="/browse"><a><span>BROWSE</span> NOW</a></Link>
       </Div>
     </>
 

@@ -22,10 +22,22 @@ const rotation = keyframes`
 `
 
 const MainNav = styled.div`
-  font-size: 14px;
-  background-color: #f4f4f4;
+  font-size: 16px;
+  border: 1px #d9d9d9 solid;
+  background-color: #ffffff;
   padding: 16px;
   text-align: center;
+  border-radius: 20px;
+  vertical-align: middle;
+
+  display: center;
+	align-items: center;
+	position: sticky;
+	top: -5px;
+	z-index: 2;
+	/* height: 30px; */
+	min-height: 30px;
+	width: 99%;
 
   a {
     text-decoration: none;
@@ -33,7 +45,11 @@ const MainNav = styled.div`
   }
 
   span {
-    color: #999;
+    /* color: #b0b0b0; */
+    background: linear-gradient(to right, #eb01c4 0%, #ff8c00 100%);
+    background-clip: text;
+	  -webkit-text-fill-color: transparent;
+    font-weight: bold;
   }
 `;
 
@@ -61,8 +77,10 @@ const Div = styled.div`
     background-color: white;
     padding: 32px;
     margin: auto;
-    border-radius: 8px;
+    border-radius: 50px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    padding-left: 50px;
+    padding-right: 50px;
 
     .title {
       margin-top: 16px;
@@ -76,7 +94,7 @@ const Div = styled.div`
     .server {
       border: 1px #ff4646 solid;
       color: #ff4646;
-      border-radius: 6px;
+      border-radius: 50px;
       font-size: 14px;
       padding: 13px;
       margin-top: 24px;
@@ -98,14 +116,14 @@ const Div = styled.div`
           padding: 13px 16px;
           outline: none;
           border: 1px #ccc solid;
-          border-radius: 6px;
+          border-radius: 50px;
 
           &::placeholder {
             color: #aaa;
           }
 
           &:focus {
-            border-color: #4a00e0;
+            border-color: #e06500;
           }
         }
 
@@ -130,10 +148,10 @@ const Div = styled.div`
 
       button {
         font: inherit;
-        border-radius: 6px;
-        background: #8e2de2;
-        background: -webkit-linear-gradient(to right, #8e2de2, #4a00e0);
-        background: linear-gradient(to right, #8e2de2, #4a00e0);
+        border-radius: 50px;
+        background: #6db3899c;
+        background: -webkit-linear-gradient(to right, #6db3899c, #e06500);
+        background: linear-gradient(to right, #6db3899c, #e06500);
         color: white;
         font-weight: 500;
         display: flex;
@@ -162,43 +180,8 @@ const Div = styled.div`
         margin-left: 8px;
         width: 14px;
         height: 14px;
-        border: 1.5px solid #4a00e0;
+        border: 1.5px solid #e06500;
         border-bottom-color: transparent;
-      }
-    }
-
-    .ext {
-      margin-top: 32px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      button {
-        font: inherit;
-        font-size: 14px;
-        border: none;
-        outline: none;
-        background-color: white;
-        color: #4a00e0;
-        cursor: pointer;
-
-        @media (hover: hover) {
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-
-        @media (hover: none) {
-          &:active {
-            text-decoration: underline;
-          }
-        }
-
-        .icon {
-          margin-left: 3px;
-          width: 18px;
-          height: 18px;
-        }
       }
     }
 
@@ -210,7 +193,7 @@ const Div = styled.div`
 
       a {
         text-decoration: none;
-        color: #4a00e0;
+        color: #e06500;
 
         @media (hover: hover) {
           &:hover {
@@ -243,7 +226,6 @@ export default function Login({ }: Props) {
   const [startPasswordValidation, setStartPasswordValidation] = useState(false);
   const [serverErrorMessage, setServerErrorMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [isGuestLoading, setIsGuestLoading] = useState(false);
 
   const isEmailValid = emailInput.length !== 0 && validateEmail(emailInput);
   const isPasswordValid =
@@ -294,40 +276,19 @@ export default function Login({ }: Props) {
     }
   };
 
-  const loginAsGuestHandler = () => {
-    setIsGuestLoading(true);
-    signInWithEmailAndPassword(auth, 'lovelyguest@fakemail.com', 'lovelyguest')
-      .then((user) => { })
-      .catch((error) => {
-        const errorCode = error.code;
-        console.log(errorCode);
-
-        if (errorCode === 'auth/user-not-found') {
-          setServerErrorMessage("Account doesn't exist.");
-        } else if (errorCode === 'auth/wrong-password') {
-          setServerErrorMessage('Invalid password.');
-        } else {
-          setServerErrorMessage('Something went wrong.');
-        }
-      })
-      .finally(() => {
-        setIsGuestLoading(false);
-      });
-  };
-
   return (
     <>
       <Head>
-        <title>Sign In</title>
+        <title>Log In</title>
       </Head>
       <MainNav>
-        <Link href="/">Home</Link> / <span>Sign In</span>
+        <Link href="/">Home</Link> / <span>Log In</span>
       </MainNav>
       <Div>
         {user ? (
           <>
             <p>
-              You are signed in as <span className="bold">{user.email}</span>.
+              You are logged in as <span className="bold">{user.email}</span>.
               You'll now be redirected.
             </p>
           </>
@@ -390,21 +351,11 @@ export default function Login({ }: Props) {
                     }`}</span>
                 </div>
                 <button type="submit" disabled={isLoading}>
-                  {isLoading ? <span className="loader"></span> : 'Sign In'}
+                  {isLoading ? <span className="loader"></span> : 'Log In'}
                 </button>
               </form>
-              <div className="ext">
-                <button
-                  type="button"
-                  disabled={isGuestLoading}
-                  onClick={loginAsGuestHandler}
-                >
-                  Continue as Guest
-                </button>
-                {isGuestLoading && <span className="loader small"></span>}
-              </div>
               <p className="info">
-                Don't have an account? <Link href="/signup">Sign Up</Link>
+                Don't you have an account? <Link href="/signup">Sign Up</Link>
               </p>
             </div>
           </>

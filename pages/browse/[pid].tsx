@@ -19,10 +19,22 @@ type Props = {
   price: any
 }
 const MainNav = styled.div`
-  font-size: 14px;
-  background-color: #f4f4f4;
+  font-size: 16px;
+  border: 1px #d9d9d9 solid;
+  background-color: #ffffff;
   padding: 16px;
   text-align: center;
+  border-radius: 20px;
+  vertical-align: middle;
+
+  display: center;
+	align-items: center;
+	position: sticky;
+	top: -5px;
+	z-index: 6;
+	/* height: 30px; */
+	min-height: 30px;
+	width: 99%;
 
   a {
     text-decoration: none;
@@ -30,7 +42,10 @@ const MainNav = styled.div`
   }
 
   span {
-    color: #999;
+  background: linear-gradient(to right, #eb01c4 0%, #ff8c00 100%);
+  background-clip: text;
+	-webkit-text-fill-color: transparent;
+  font-weight: bold;
   }
 `;
 
@@ -63,16 +78,19 @@ const Div = styled.div`
       .brand {
         font-size: 20px;
         font-weight: 500;
+        margin-left: 16px;
       }
 
       .name {
         color: #777;
         margin: 16px 0;
+        margin-left: 16px;
       }
 
       .price {
         font-size: 20px;
         font-weight: 500;
+        margin-left: 16px;
       }
 
       .size-box {
@@ -88,7 +106,7 @@ const Div = styled.div`
           }
 
           .chart {
-            color: #4a00e0;
+            color: #e06500;
             margin-left: 16px;
             font-size: 14px;
             cursor: pointer;
@@ -131,8 +149,8 @@ const Div = styled.div`
             cursor: pointer;
 
             &.active {
-              border-color: #4a00e0;
-              color: #4a00e0;
+              border-color: #e06500;
+              color: #e06500;
             }
 
             &:last-child {
@@ -143,7 +161,7 @@ const Div = styled.div`
               transition: border 240ms;
 
               &:hover {
-                border-color: #4a00e0;
+                border-color: #e06500;
               }
             }
           }
@@ -157,7 +175,7 @@ const Div = styled.div`
         button {
           font: inherit;
           font-weight: 500;
-          border-radius: 6px;
+          border-radius: 50px;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -169,11 +187,11 @@ const Div = styled.div`
         }
 
         .cart {
-          background: #8e2de2;
-          background: -webkit-linear-gradient(to right, #8e2de2, #4a00e0);
-          background: linear-gradient(to right, #8e2de2, #4a00e0);
+          background: #6db3899c;
+          background: -webkit-linear-gradient(to right, #6db3899c, #e06500);
+          background: linear-gradient(to right, #6db3899c, #e06500);
           color: white;
-          margin-left: 16px;
+          /* margin-left: 0px; */
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
           .loader {
@@ -236,55 +254,6 @@ const Div = styled.div`
   }
 `;
 
-const ModalDiv = styled.div`
-  padding: 16px;
-
-  .title {
-    color: #4a00e0;
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 16px;
-  }
-
-  .table {
-    overflow: auto;
-
-    table {
-      border-collapse: collapse;
-      font-size: 14px;
-      width: 474px;
-
-      &.jeans {
-        width: 356px;
-      }
-
-      th {
-        font-weight: 500;
-      }
-
-      td,
-      th {
-        border-top: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
-        text-align: center;
-        padding: 16px;
-      }
-
-      tr {
-        th:first-child,
-        td:first-child {
-          border-left: 1px solid #ddd;
-        }
-
-        th:last-child,
-        td:last-child {
-          border-right: 1px solid #ddd;
-        }
-      }
-    }
-  }
-`;
-
 export default function ProductById({ id, imageURL, brand, category, name, price }: Props) {
   const [isLoading, setIsLoading] = useState(false)
   const user = useSelector((state: any) => state.auth.user);
@@ -292,10 +261,10 @@ export default function ProductById({ id, imageURL, brand, category, name, price
   const router = useRouter()
 
   const cartItem = cartItems.find(
-    (item) => item.itemId === id && item.itemSize
+    (item) => item.itemId === id
   );
   const cartItemIndex = cartItems.findIndex(
-    (item) => item.itemId === id && item.itemSize
+    (item) => item.itemId === id
   );
   const isInCart = !!cartItem;
 
@@ -379,6 +348,8 @@ export default function ProductById({ id, imageURL, brand, category, name, price
 
 export async function getServerSideProps(context) {
   let product = {}
+  //console.log('context from [pid] ->', context);
+
   const pid = context.params.pid
   const promiseItem = ProductService.getProductById(pid)
   promiseItem.then((item) => {

@@ -15,10 +15,21 @@ import { db } from '../utils/firebase-config';
 type Props = {}
 
 const MainNav = styled.div`
-  font-size: 14px;
-  background-color: #f4f4f4;
+  font-size: 16px;
+  border: 1px #d9d9d9 solid;
+  background-color: #ffffff;
   padding: 16px;
   text-align: center;
+  border-radius: 20px;
+  vertical-align: middle;
+
+  display: center;
+	align-items: center;
+	position: sticky;
+	top: -5px;
+	z-index: 2;
+	min-height: 30px;
+	width: 99%;
 
   a {
     text-decoration: none;
@@ -26,7 +37,11 @@ const MainNav = styled.div`
   }
 
   span {
-    color: #999;
+    /* color: #b0b0b0; */
+    background: linear-gradient(to right, #eb01c4 0%, #ff8c00 100%);
+    background-clip: text;
+	  -webkit-text-fill-color: transparent;
+    font-weight: bold;
   }
 `;
 
@@ -62,8 +77,10 @@ const Div = styled.div`
     background-color: white;
     padding: 32px;
     margin: auto;
-    border-radius: 8px;
+    border-radius: 50px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    padding-left: 50px;
+    padding-right: 50px;
 
     .title {
       margin-top: 16px;
@@ -77,7 +94,7 @@ const Div = styled.div`
     .server {
       border: 1px #ff4646 solid;
       color: #ff4646;
-      border-radius: 6px;
+      border-radius: 50px;
       font-size: 14px;
       padding: 13px;
       margin-top: 24px;
@@ -99,14 +116,14 @@ const Div = styled.div`
           padding: 13px 16px;
           outline: none;
           border: 1px #ccc solid;
-          border-radius: 6px;
+          border-radius: 50px;
 
           &::placeholder {
             color: #aaa;
           }
 
           &:focus {
-            border-color: #4a00e0;
+            border-color: #e06500;
           }
         }
 
@@ -131,9 +148,9 @@ const Div = styled.div`
 
       button {
         font: inherit;
-        background: #8e2de2;
-        background: -webkit-linear-gradient(to right, #8e2de2, #4a00e0);
-        background: linear-gradient(to right, #8e2de2, #4a00e0);
+        background: #6db3899c;
+        background: -webkit-linear-gradient(to right, #6db3899c, #e06500);
+        background: linear-gradient(to right, #6db3899c, #e06500);
         color: white;
         font-weight: 500;
         display: flex;
@@ -144,7 +161,7 @@ const Div = styled.div`
         outline: none;
         cursor: pointer;
         border: none;
-        border-radius: 6px;
+        border-radius: 50px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
         .loader {
@@ -167,7 +184,7 @@ const Div = styled.div`
 
       a {
         text-decoration: none;
-        color: #4a00e0;
+        color: #e06500;
 
         @media (hover: hover) {
           &:hover {
@@ -280,7 +297,7 @@ export default function SignUp({ }: Props) {
         {user ? (
           <>
             <p>
-              You are signed in as <span className="bold">{user.email}</span>.
+              You are logged in as <span className="bold">{user.email}</span>.
               You'll now be redirected.
             </p>
           </>
@@ -362,7 +379,7 @@ export default function SignUp({ }: Props) {
                 </button>
               </form>
               <p className="info">
-                Do you have an account? <Link href="/login">Sign In</Link>
+                Do you have an account? <Link href="/login">Log In</Link>
               </p>
             </div>
           </>

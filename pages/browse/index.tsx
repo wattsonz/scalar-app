@@ -11,29 +11,28 @@ import Empty from '../../components/Empty';
 import ProductsService from '../../utils/product.services';
 
 type Props = {
-  clothes: any
+  products: any
   brands: any
   categories: any
 }
 
 const MainNav = styled.div`
-  font-size: 20px;
-  background-color: #e06500;
-  background: -webkit-linear-gradient(to right, #eeee4b9c, #e06500);
-    background: linear-gradient(to right, #eeee4b9c, #e06500);
+  font-size: 16px;
+  border: 1px #d9d9d9 solid;
+  background-color: #ffffff;
   padding: 16px;
   text-align: center;
-  border-radius: 30px;
-  
+  border-radius: 20px;
+  vertical-align: middle;
 
   display: center;
 	align-items: center;
 	position: sticky;
 	top: -5px;
 	z-index: 2;
-	height: 70px;
-	min-height: 70px;
-	width: 100%;
+	/* height: 30px; */
+	min-height: 30px;
+	width: 99%;
 
   a {
     text-decoration: none;
@@ -41,7 +40,11 @@ const MainNav = styled.div`
   }
 
   span {
-    color: #eff5bd;
+    /* color: #b0b0b0; */
+    background: linear-gradient(to right, #eb01c4 0%, #ff8c00 100%);
+    background-clip: text;
+	  -webkit-text-fill-color: transparent;
+    font-weight: bold;
   }
 `;
 
@@ -52,10 +55,17 @@ const Div = styled.div`
   .aside {
     width: 300px;
     padding: 16px;
+    /* border: 1px #d9d9d9 solid; */
+    /* border-radius: 20px; */
+    /* border-top: 0px; */
 
     .title {
-      font-size: 18px;
+      font-size: 50px;
       font-weight: 500;
+      background: linear-gradient(to right, #000000 0%, #f1ff5c 100%);
+        background-clip: text;
+	      -webkit-text-fill-color: transparent;
+        font-weight: bold;
     }
   }
 
@@ -69,31 +79,38 @@ const Div = styled.div`
       display: flex;
 
       .title {
-        font-size: 18px;
+        font-size: 50px;
         font-weight: 500;
         margin-right: auto;
+        background: linear-gradient(to right, #0191eb 0%, #000000 100%);
+        background-clip: text;
+	      -webkit-text-fill-color: transparent;
+        font-weight: bold;
+        /* border: #0191eb solid 5px;
+        border-radius: 5px; */
+        /* padding: 15px; */
       }
     }
 
-    .clothes {
+    .products {
       margin: 16px 0;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 16px;
     }
   }
 
   @media (max-width: 1024px) {
     .main {
-      .clothes {
-        grid-template-columns: repeat(3, 1fr);
+      .products {
+        grid-template-columns: repeat(5, 1fr);
       }
     }
   }
 
   @media (max-width: 768px) {
     .main {
-      .clothes {
+      .products {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -109,37 +126,40 @@ const Div = styled.div`
         }
       }
 
-      .clothes {
+      .products {
         margin-bottom: 0;
       }
     }
   }
 `;
 
-export default function Browse({ clothes, brands, categories }: Props) {
+export default function Browse({ products, brands, categories }: Props) {
   const filteredBrands = useSelector((state: any) => state.filter.brands);
   const filteredCategories = useSelector((state: any) => state.filter.categories);
   const filteredSort = useSelector((state: any) => state.filter.sort);
 
-  let filteredClothes;
+  let filteredProducts;
 
-  filteredClothes =
+  filteredProducts =
     filteredBrands.length > 0
-      ? [...clothes].filter((value) => filteredBrands.includes(value.brand))
-      : [...clothes];
+      ? [...products].filter((value) => filteredBrands.includes(value.brand))
+      : [...products];
 
-  filteredClothes =
+  filteredProducts =
     filteredCategories.length > 0
-      ? filteredClothes.filter((value) =>
+      ? filteredProducts.filter((value) =>
         filteredCategories.includes(value.category)
       )
-      : filteredClothes;
+      : filteredProducts;
 
   if (filteredSort === 'price_high_to_low') {
-    filteredClothes = filteredClothes.sort((a, b) => +b.price - +a.price);
+    filteredProducts = filteredProducts.sort((a, b) => +b.price - +a.price);
   } else if (filteredSort === 'price_low_to_high') {
-    filteredClothes = filteredClothes.sort((a, b) => +a.price - +b.price);
+    filteredProducts = filteredProducts.sort((a, b) => +a.price - +b.price);
   }
+
+  //console.log('filteredProducts', filteredProducts);
+
 
   return (
     <>
@@ -151,7 +171,7 @@ export default function Browse({ clothes, brands, categories }: Props) {
       </MainNav>
       <Div>
         <aside className="aside">
-          {/* <div className="title">Filters</div> */}
+          <div className="title">Filters</div>
           <BrandFilter items={brands} />
           <CategoryFilter items={categories} />
         </aside>
@@ -161,9 +181,9 @@ export default function Browse({ clothes, brands, categories }: Props) {
             <div className="title">Showcase</div>
             <SortSelect />
           </div>
-          {filteredClothes.length > 0 ? (
-            <div className="clothes">
-              {filteredClothes.map((item, index) => (
+          {filteredProducts.length > 0 ? (
+            <div className="products">
+              {filteredProducts.map((item, index) => (
                 <ItemCard key={item.id} {...item} setPriority={index < 8} />
               ))}
             </div>
@@ -197,7 +217,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      clothes: items,
+      products: items,
       brands,
       categories,
     },

@@ -14,23 +14,23 @@ const Div = styled.div`
   padding: 16px;
 
   .round {
-    border: 1px #eee solid;
-    border-radius: 50%;
+    /* border: 1px #eee solid;
+    border-radius: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 10px rgba(255, 179, 0, 0.5);
     width: 82px;
-    height: 82px;
+    height: 82px; */
 
     .icon {
-      border: 3px #4a00e0 solid;
+      border: 3px #e06500 solid;
       border-radius: 50%;
       padding: 8px;
       width: 64px;
       height: 64px;
       stroke-width: 1.5px;
-      color: #4a00e0;
+      color: #e06500;
     }
   }
 
@@ -49,26 +49,26 @@ const Div = styled.div`
     margin-top: 30px;
     padding: 14px 42px;
     text-decoration: none;
-    background: #8e2de2;
-    background: -webkit-linear-gradient(to right, #8e2de2, #4a00e0);
-    background: linear-gradient(to right, #8e2de2, #4a00e0);
+    background: #6db3899c;
+    background: -webkit-linear-gradient(to right, #6db3899c, #e06500);
+    background: linear-gradient(to right, #6db3899c, #e06500);
     color: white;
     font-weight: 500;
     border: none;
-    border-radius: 10px;
+    border-radius: 50px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 `
 
 export default function OrderPlaced({ }: Props) {
-    return (
-        <Div>
-            <div className="round">
-                <CheckIcon />
-            </div>
-            <h2 className="title">Order placed successfully</h2>
-            <p className="text">Thank you</p>
-            <Link href="/browse">Continue Shopping</Link>
-        </Div>
-    )
+  return (
+    <Div>
+      <div className="round">
+        <CheckIcon />
+      </div>
+      <h2 className="title">Order placed successfully</h2>
+      <p className="text">{`Thank you for support us <3`}</p>
+      <Link href="/browse">Continue Shopping</Link>
+    </Div>
+  )
 }

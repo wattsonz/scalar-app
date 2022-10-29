@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 
-// import testReducer from "./slices/testSlice";
+import testReducer from "./slices/testSlice";
 import filterReducer from "./slices/filterSlice";
 import cartReducer from "./slices/cartSlice";
 import authReducer from "./slices/authSlice";
@@ -10,7 +10,7 @@ const reducer = {
   auth: authReducer,
   filter: filterReducer,
   cart: cartReducer,
-  // testReducer,
+  testReducer,
 };
 
 export const store = configureStore({

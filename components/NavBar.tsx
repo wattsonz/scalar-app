@@ -70,7 +70,9 @@ const Div = styled.div`
           .badge {
             font-size: 10px;
             font-weight: 600;
-            background-color: #4a00e0;
+            /* background-color: #e0a800; */
+            background: -webkit-linear-gradient(to right, #eb01c4, #ff8c00);
+            background: linear-gradient(to right, #eb01c4, #ff8c00);
             color: white;
             border-radius: 50%;
             width: 18px;
@@ -79,8 +81,8 @@ const Div = styled.div`
             justify-content: center;
             align-items: center;
             position: absolute;
-            top: -2px;
-            right: -2px;
+            top: 5px;
+            right: 1px;
             z-index: 10;
 
             @media (max-width: 640px) {
@@ -105,7 +107,7 @@ const Div = styled.div`
       }
 
       &.active {
-        border-bottom-color: #4a00e0;
+        border-bottom-color: #ff4d07;
       }
     }
   }
@@ -165,7 +167,7 @@ export default function NavBar({ }: Props) {
     setIsMenuVisible(false);
   };
 
-  const signOutHandler = () => {
+  const logOutHandler = () => {
     signOut(auth)
       .then(() => {
         closeMenu();
@@ -179,7 +181,7 @@ export default function NavBar({ }: Props) {
       <h1 className="title">
         <SuperLink href="/">
           <LogoIcon />
-          <p>Scala Market</p>
+          <p>scalar</p>
         </SuperLink>
       </h1>
       <div className="box">
@@ -196,7 +198,7 @@ export default function NavBar({ }: Props) {
             <UserIcon />
           </button>
           {isMenuVisible && (
-            <LoginPanel onClose={closeMenu} onSignOut={signOutHandler} />
+            <LoginPanel onClose={closeMenu} onLogOut={logOutHandler} />
           )}
         </div>
       </div>

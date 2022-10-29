@@ -20,11 +20,10 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     font-family: 'Inter', sans-serif;               
     -webkit-tap-highlight-color: transparent;
-    background-color: #fceed3;
   }
 
   *::selection {
-    background-color: #e2a32d;
+    background-color: #ffb274;
   }
 `;
 

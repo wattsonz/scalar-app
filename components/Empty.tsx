@@ -14,11 +14,11 @@ const Div = styled.div`
 
   .round {
     border: 1px #eee solid;
-    border-radius: 50%;
+    border-radius: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 10px rgba(255, 179, 0, 0.5);
 
     .icon {
       margin: 24px 24px;
@@ -37,12 +37,12 @@ const Div = styled.div`
 `;
 
 export default function Empty({ }: Props) {
-    return (
-        <Div>
-            <div className="round">
-                <FilterIcon />
-            </div>
-            <p className="text">No results found</p>
-        </Div>
-    )
+  return (
+    <Div>
+      <div className="round">
+        <FilterIcon />
+      </div>
+      <p className="text">404 products not found</p>
+    </Div>
+  )
 }

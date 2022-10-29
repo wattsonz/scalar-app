@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import { UserIcon } from '../assets/icons';
+import { UserIcon2 } from '../assets/icons';
 
 type Props = {
   type: any
@@ -17,11 +17,12 @@ const Div = styled.div`
 
   .round {
     border: 1px #eee solid;
-    border-radius: 50%;
+    border-radius: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 10px rgba(255, 179, 0, 0.5);
+    
 
     .icon {
       margin: 24px 24px;
@@ -50,13 +51,13 @@ const Div = styled.div`
     margin-top: 30px;
     padding: 14px 42px;
     text-decoration: none;
-    background: #8e2de2;
-    background: -webkit-linear-gradient(to right, #8e2de2, #4a00e0);
-    background: linear-gradient(to right, #8e2de2, #4a00e0);
+    background: #6db3899c;
+    background: -webkit-linear-gradient(to right, #6db3899c, #e06500);
+    background: linear-gradient(to right, #6db3899c, #e06500);
     color: white;
     font-weight: 500;
     border: none;
-    border-radius: 10px;
+    border-radius: 50px;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.24)
   }
 `
@@ -65,7 +66,7 @@ export default function ForceLogin({ type }: Props) {
   return (
     <Div>
       <div className="round">
-        <UserIcon />
+        <UserIcon2 />
       </div>
       <h2 className="title">Please Login</h2>
       <p className="text">Login to access this page</p>

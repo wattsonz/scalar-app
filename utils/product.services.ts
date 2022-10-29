@@ -38,25 +38,16 @@ class ProductService {
 
     getProductById(pid) {
         let fetched = false
-
         return new Promise<Array<object>>((resolve, reject) => {
-
             const q = query(collection(db, 'products'), where("id", "==", pid));
             const unsubscribe = onSnapshot(q, (querySnapshot) => {
-                console.log('unsubscribe')
-
-                const urls = querySnapshot.docs.map((d) => ({ id: d.id, ...d.data() }))
-
+                // console.log('unsubscribe')
+                const item = querySnapshot.docs.map((d) => ({ id: d.id, ...d.data() }))
                 if (!fetched) {
-
-                    // URLs fetched for first time, return value
                     fetched = true;
-                    resolve(urls);
+                    resolve(item);
                 } else {
-                    console.log('false');
-
-                    // URLs fetched already, an update received.
-                    // TODO: Update in state directly
+                    // console.log('false from product.services');
                 }
             })
         })

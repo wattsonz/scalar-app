@@ -86,7 +86,7 @@ const Div = styled.div`
         }
       }
 
-      .amount {
+      .price {
         font-weight: 500;
         display: flex;
         align-items: center;
@@ -126,7 +126,7 @@ const Div = styled.div`
     font: inherit;
     font-weight: 500;
     background-color: white;
-    color: #4a00e0;
+    color: #e06500;
     display: block;
     outline: none;
     cursor: pointer;
@@ -149,7 +149,7 @@ const ModalDiv = styled.div`
   padding: 16px;
 
   .title {
-    color: #4a00e0;
+    color: #e06500;
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 32px;
@@ -165,7 +165,7 @@ const ModalDiv = styled.div`
       font-size: 14px;
       font-weight: 500;
       border: 1px #ddd solid;
-      border-radius: 50%;
+      border-radius: 30%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -176,8 +176,8 @@ const ModalDiv = styled.div`
       cursor: pointer;
 
       &.active {
-        border-color: #4a00e0;
-        color: #4a00e0;
+        border-color: #e06500;
+        color: #e06500;
       }
 
       &:last-child {
@@ -188,7 +188,7 @@ const ModalDiv = styled.div`
         transition: border 240ms;
 
         &:hover {
-          border-color: #4a00e0;
+          border-color: #e06500;
         }
       }
     }
@@ -208,10 +208,6 @@ export default function CartSingleCard({
   const [currentQuantity, setCurrentQuantity] = useState(quantity);
   const user = useSelector((state: any) => state.auth.user);
   const cartItems = useSelector((state: any) => state.cart.items);
-
-  const a = imageURL
-  console.log('a IMAGE =>', a);
-
 
   const removeItemHandler = () => {
     updateDoc(doc(db, user.uid, 'cart'), {
@@ -274,10 +270,10 @@ export default function CartSingleCard({
                 <ChevronDownIcon />
               </button>
             </div>
-            <div className="amount">
+            <div className="price">
               <span>{quantity}</span>
               <CloseIcon />
-              <span>{`Rs. ${getFormattedCurrency(price)}`}</span>
+              <span>{`${getFormattedCurrency(price)} Baht`}</span>
             </div>
           </div>
           <button className="delete" onClick={removeItemHandler}>

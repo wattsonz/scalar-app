@@ -1,8 +1,8 @@
 export const validateEmail = (email) => {
-    const re =
+    const regEx =
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    return re.test(String(email).toLowerCase())
+    return regEx.test(String(email).toLowerCase())
 }
 
 export const validatePassword = (password) => {

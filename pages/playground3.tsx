@@ -17,7 +17,6 @@ import {
 import { current } from '@reduxjs/toolkit'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 
-import CredentialsService from '../utils/credentials.services'
 import ProductService from '../utils/product.services'
 
 type Props = {}

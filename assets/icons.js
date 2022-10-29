@@ -8,9 +8,9 @@ export const LogoIcon = () => (
     className="icon"
   >
     <circle cx="120" cy="120" r="120" fill="url(#paint0_linear_2_2)" />
-    <path d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"
+    {/* <path d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"
       stroke="white"
-      strokeWidth="14" />
+      strokeWidth="5" /> */}
     <defs>
       <linearGradient
         id="paint0_linear_2_2"
@@ -20,8 +20,8 @@ export const LogoIcon = () => (
         y2="120"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stopColor="#e2a32d" />
-        <stop offset="1" stopColor="#e06500" />
+        <stop stopColor="#e06500" />
+        <stop offset="1" stopColor="#ffb75f" />
       </linearGradient>
     </defs>
   </svg>
@@ -30,36 +30,17 @@ export const LogoIcon = () => (
 export const CartIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
+    width="27"
+    height="27"
+    // fill="none"
     stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
+    strokeWidth="1.6"
+    // strokeLinecap="round"
+    // strokeLinejoin="round"
     className="icon"
+    viewBox="0 0 20 20"
   >
-    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-    <line x1="3" y1="6" x2="21" y2="6"></line>
-    <path d="M16 10a4 4 0 0 1-8 0"></path>
-  </svg>
-);
-
-export const WishlistIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="icon"
-  >
-    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+    <g fill="none" fillRule="evenodd" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" transform="translate(4 4)"><path d="m2.42575356.50254623 8.09559774-.00228586c.5209891-.00014706.9548019.39973175.9969972.91900932l.8938128 10.99973961c.0447299.5504704-.3652538 1.0329756-.9157242 1.0777056l-.0809907.0032851h-9.83555122c-.55228475 0-1-.4477152-1-1l.00294679-.076713.84614072-10.99745378c.0400765-.52088193.4743495-.92313949.99677087-.92328699z" /><path d="m9.5 4.5v.64527222c0 1.10456949-1.8954305 1.35472778-3 1.35472778s-3-.3954305-3-1.5v-.5" /></g>
   </svg>
 );
 
@@ -67,19 +48,46 @@ export const UserIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className="icon"
-    width="26"
-    height="27"
-    viewBox="0 0 24 24"
-    strokeWidth="1.5"
-    stroke="currentColor"
-    fill="none"
-    strokeLinecap="round"
-    strokeLinejoin="round"
+    width="30"
+    height="30"
+    viewBox="0 0 25 22"
+  // width="26"
+  // height="30"
+  // viewBox="0 0 21 22"
+  // strokeWidth="1.5"
+  // stroke="currentColor"
+  // fill="none"
+  // strokeLinecap="round"
+  // strokeLinejoin="round"
   >
-    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    {/* <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <circle cx="12" cy="12" r="9" />
     <circle cx="12" cy="10" r="3" />
-    <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
+    <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" /> */}
+    <path d="M20.474 19.013a8.941 8.941 0 0 0-4.115-4.89 6 6 0 1 0-8.717 0 8.941 8.941 0 0 0-4.115 4.89 11.065 11.065 0 0 0 1.63 1.59 6.965 6.965 0 0 1 4.728-5.275 1 1 0 0 0 .181-1.829 4 4 0 1 1 3.871 0 1 1 0 0 0 .181 1.829 6.965 6.965 0 0 1 4.726 5.272 11.059 11.059 0 0 0 1.63-1.587z" />
+
+  </svg>
+);
+
+export const UserIcon2 = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="icon"
+    width="25"
+    height="25"
+    viewBox="0 0 24 25"
+  // strokeWidth="1.5"
+  // stroke="currentColor"
+  // fill="none"
+  // strokeLinecap="round"
+  // strokeLinejoin="round"
+  >
+    {/* <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <circle cx="12" cy="12" r="9" />
+    <circle cx="12" cy="10" r="3" />
+    <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" /> */}
+    <path d="M20.474 19.013a8.941 8.941 0 0 0-4.115-4.89 6 6 0 1 0-8.717 0 8.941 8.941 0 0 0-4.115 4.89 11.065 11.065 0 0 0 1.63 1.59 6.965 6.965 0 0 1 4.728-5.275 1 1 0 0 0 .181-1.829 4 4 0 1 1 3.871 0 1 1 0 0 0 .181 1.829 6.965 6.965 0 0 1 4.726 5.272 11.059 11.059 0 0 0 1.63-1.587z" />
+
   </svg>
 );
 

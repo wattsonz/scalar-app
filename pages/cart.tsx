@@ -12,14 +12,27 @@ import ForceLogin from '../components/ForceLogin'
 import OrderPlaced from '../components/OrderPlaced'
 import { db } from '../utils/firebase-config'
 import ProductService from '../utils/product.services'
+import { getFormattedCurrency } from '../utils/getFormattedCurrency';
 
 type Props = {}
 
 const MainNav = styled.div`
-  font-size: 14px;
-  background-color: #e2a32d;
+  font-size: 16px;
+  border: 1px #d9d9d9 solid;
+  background-color: #ffffff;
   padding: 16px;
   text-align: center;
+  border-radius: 20px;
+  vertical-align: middle;
+
+  display: center;
+	align-items: center;
+	position: sticky;
+	top: -5px;
+	z-index: 6;
+	/* height: 30px; */
+	min-height: 30px;
+	width: 99%;
 
   a {
     text-decoration: none;
@@ -27,7 +40,11 @@ const MainNav = styled.div`
   }
 
   span {
-    color: #eff5bd;
+    /* color: #b0b0b0; */
+  background: linear-gradient(to right, #eb01c4 0%, #ff8c00 100%);
+  background-clip: text;
+	-webkit-text-fill-color: transparent;
+  font-weight: bold;
   }
 `;
 
@@ -46,13 +63,18 @@ const Div = styled.div`
   justify-content: center;
 
   .cart {
-    padding: 16px;
+    padding-right: 100px;
   }
 
   .checkout {
     padding: 16px;
+    padding-top: 20px;
+    margin-top: 50px;
     font-size: 14px;
     width: 280px;
+    border: 1px #d9d9d9 solid;
+    border-radius: 20px;
+    max-height: 260px;
 
     .basic {
       .title {
@@ -87,10 +109,10 @@ const Div = styled.div`
 
       .order {
         font: inherit;
-        border-radius: 10px;
-        background: #8e2de2;
-        background: -webkit-linear-gradient(to right, #8e2de2, #4a00e0);
-        background: linear-gradient(to right, #8e2de2, #4a00e0);
+        border-radius: 50px;
+        background: #6db3899c;
+        background: -webkit-linear-gradient(to right, #6db3899c, #e06500);
+        background: linear-gradient(to right, #6db3899c, #e06500);
         color: white;
         font-size: 16px;
         font-weight: 500;
@@ -130,7 +152,22 @@ const Div = styled.div`
     }
   }
 
-  @media (max-width: 640px) {
+  .title2 {
+    font-size: 150px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    background: linear-gradient(to right, #a4ea96 0%, #047500 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    
+    span {
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+
+  /* @media (max-width: 640px) {
     flex-direction: column;
 
     .cart {
@@ -142,39 +179,85 @@ const Div = styled.div`
       padding: 0;
       width: 100%;
     }
-  }
+  } */
 `;
 
-export default function cart({ }: Props) {
-  const [clothes, setClothes] = useState([]);
+export default function Cart({ }: Props) {
+  const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isPlacingOrder, setIsPlacingOrder] = useState(false);
   const [isOrderPlaced, setIsOrderPlaced] = useState(false);
   const user = useSelector((state: any) => state.auth.user);
   const cartItems = useSelector((state: any) => state.cart.items);
-
-  useEffect(() => {
-    const items = cartItems.map((item) => {
-      const itemDetails = ProductService.getProductById(item.itemId)
-      return {
-        size: item.itemSize,
-        quantity: item.itemQuantity,
-        ...itemDetails,
-      };
-    });
-
-    setClothes(() => {
-      setIsLoading(false);
-      return items;
-    });
-  }, [cartItems]);
-
-  const priceValue = clothes.reduce(
-    (prev, cur) => prev + +cur.amount * +cur.quantity,
+  const cartCount = cartItems.reduce(
+    (prev, cur) => prev + +cur.itemQuantity,
     0
   );
-  const discountValue = Math.floor(priceValue / 5);
-  const totalValue = priceValue - discountValue;
+
+  //console.log('products', products)
+
+  // const itemDetail1 = ProductService.getProductById('00103')
+  // console.log('itemDetail1', itemDetail1)
+
+  // const test = async (cartItems) => {
+  //   const itemDetail1 = await ProductService.getProductById('00103')
+  //   console.log('itemDetail1', itemDetail1)
+  // }
+
+  // test()
+
+  useEffect(() => {
+
+    const fetchItem = async () => {
+      const items = await Promise.all(cartItems.map(async (item) => {
+        const itemDetails = await ProductService.getProductById(item.itemId)
+        const [itemDetail] = itemDetails
+        console.log('itemDetails => ', itemDetail)
+
+        return {
+          quantity: item.itemQuantity,
+          ...itemDetail,
+        };
+      }));
+      return items
+    }
+
+    fetchItem().then((items) => {
+      setProducts(() => {
+        setIsLoading(false);
+        return items;
+      });
+    })
+
+    // const items = cartItems.map((item) => {
+    //   const itemDetails = ProductService.getProductById(item.itemId)
+    //   return {
+    //     quantity: item.itemQuantity,
+    //     ...itemDetails,
+    //   };
+    // });
+
+    // setProducts(() => {
+    //   setIsLoading(false);
+    //   return items;
+    // });
+
+
+
+  }, [cartItems]);
+
+  const getitemDetails = async (itemId) => {
+    const itemDetail = await ProductService.getProductById(itemId)
+    //console.log('itemDetail', itemDetail)
+
+    return itemDetail
+  }
+
+  const priceValue = products.reduce(
+    (prev, cur) => prev + +cur.price * +cur.quantity,
+    0
+  );
+  const totalValue = priceValue;
 
   const placeOrderHandler = () => {
     setIsPlacingOrder(true);
@@ -187,7 +270,6 @@ export default function cart({ }: Props) {
       updateDoc(doc(db, user.uid, 'cart'), {
         items: [],
       }).then(() => {
-        console.log('cart.js // 190');
         setIsPlacingOrder(false);
       });
     });
@@ -206,14 +288,14 @@ export default function cart({ }: Props) {
       ) : (
         !isLoading &&
         (user ? (
-          clothes.length > 0 ? (
+          products.length > 0 ? (
             <Div>
               <div className="cart">
-                <div className="title">
-                  Cart <span>({clothes.length} items)</span>
+                <div className="title2">
+                  Cart {cartCount > 0 && <span>{`(${cartCount} items)`}</span>}
                 </div>
-                <div className="clothes">
-                  {clothes.map((item, index) => (
+                <div className="products">
+                  {products.map((item, index) => (
                     <CartSingleCard key={uniqid()} index={index} {...item} />
                   ))}
                 </div>
@@ -223,21 +305,17 @@ export default function cart({ }: Props) {
                 <div className="basic">
                   <div className="price">
                     <div className="title">Price</div>
-                    <div className="amount">Rs. {priceValue}</div>
-                  </div>
-                  <div className="discount">
-                    <div className="title">Discount</div>
-                    <div className="amount">- Rs. {discountValue}</div>
+                    <div className="price">{`${getFormattedCurrency(priceValue)} Baht`}</div>
                   </div>
                   <div className="shipping">
                     <div className="title">Shipping</div>
-                    <div className="amount">FREE</div>
+                    <div className="price">FREE</div>
                   </div>
                 </div>
                 <div className="total">
                   <div className="final">
-                    <div className="title">Total Amount</div>
-                    <div className="amount">Rs. {totalValue}</div>
+                    <div className="title">Total Price</div>
+                    <div className="price">{`${getFormattedCurrency(totalValue)} Baht`}</div>
                   </div>
                   <button
                     className="order"

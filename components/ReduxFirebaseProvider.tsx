@@ -13,9 +13,7 @@ type Props = {
 }
 
 export default function ReduxFirebaseProvider({ children }: Props) {
-  const [isLoading, setIsLoading] = useState(true)
   const dispatch = useDispatch()
-
   const subscriptions = []
 
   useEffect(() => {
@@ -36,24 +34,21 @@ export default function ReduxFirebaseProvider({ children }: Props) {
               try {
                 const items = document.data().items
                 dispatch(cartActions.setItems(items))
-                setIsLoading(false)
               } catch (error) {
-                setIsLoading(false)
               }
             },
             (error) => {
-              setIsLoading(false)
+              console.log('error', error)
             }
           );
           subscriptions.push(cartSub)
         } else {
           dispatch(authActions.setUser(null))
           dispatch(cartActions.setItems([]))
-          setIsLoading(false)
         }
       },
       (error) => {
-        setIsLoading(false)
+        console.log('error', error)
       }
     );
 
