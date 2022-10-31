@@ -12,7 +12,7 @@ import ForceLogin from '../components/ForceLogin'
 import OrderPlaced from '../components/OrderPlaced'
 import { db } from '../utils/firebase-config'
 import ProductService from '../utils/product.services'
-import { getFormattedCurrency } from '../utils/getFormattedCurrency';
+import { getFormattedCurrency } from '../utils/getFormattedCurrency'
 
 type Props = {}
 
@@ -46,7 +46,7 @@ const MainNav = styled.div`
 	-webkit-text-fill-color: transparent;
   font-weight: bold;
   }
-`;
+`
 
 const rotation = keyframes`
   from {
@@ -55,7 +55,7 @@ const rotation = keyframes`
   to {
     transform: rotate(360deg);
   }    
-`;
+`
 
 const Div = styled.div`
   padding: 16px;
@@ -180,19 +180,19 @@ const Div = styled.div`
       width: 100%;
     }
   } */
-`;
+`
 
 export default function Cart({ }: Props) {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isPlacingOrder, setIsPlacingOrder] = useState(false);
-  const [isOrderPlaced, setIsOrderPlaced] = useState(false);
-  const user = useSelector((state: any) => state.auth.user);
-  const cartItems = useSelector((state: any) => state.cart.items);
+  const [products, setProducts] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [isPlacingOrder, setIsPlacingOrder] = useState(false)
+  const [isOrderPlaced, setIsOrderPlaced] = useState(false)
+  const user = useSelector((state: any) => state.auth.user)
+  const cartItems = useSelector((state: any) => state.cart.items)
   const cartCount = cartItems.reduce(
     (prev, cur) => prev + +cur.itemQuantity,
     0
-  );
+  )
 
   //console.log('products', products)
 
@@ -223,8 +223,8 @@ export default function Cart({ }: Props) {
 
     fetchItem().then((items) => {
       setProducts(() => {
-        setIsLoading(false);
-        return items;
+        setIsLoading(false)
+        return items
       });
     })
 
@@ -240,7 +240,7 @@ export default function Cart({ }: Props) {
     //   setIsLoading(false);
     //   return items;
     // });
-  }, [cartItems]);
+  }, [cartItems])
 
   const getitemDetails = async (itemId) => {
     const itemDetail = await ProductService.getProductById(itemId)
@@ -253,23 +253,23 @@ export default function Cart({ }: Props) {
     (prev, cur) => prev + +cur.price * +cur.quantity,
     0
   );
-  const totalValue = priceValue;
+  const totalValue = priceValue
 
   const placeOrderHandler = () => {
-    setIsPlacingOrder(true);
+    setIsPlacingOrder(true)
     addDoc(collection(db, 'orders'), {
       items: cartItems,
       totalPrice: totalValue,
     }).then(() => {
-      setIsOrderPlaced(true);
+      setIsOrderPlaced(true)
 
       updateDoc(doc(db, user.uid, 'cart'), {
         items: [],
       }).then(() => {
-        setIsPlacingOrder(false);
-      });
-    });
-  };
+        setIsPlacingOrder(false)
+      })
+    })
+  }
 
   return (
     <>

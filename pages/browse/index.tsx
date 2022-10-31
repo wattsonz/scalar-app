@@ -1,14 +1,14 @@
-import styled from 'styled-components';
-import { useSelector } from 'react-redux';
-import Head from 'next/head';
-import Link from 'next/link';
+import styled from 'styled-components'
+import { useSelector } from 'react-redux'
+import Head from 'next/head'
+import Link from 'next/link'
 
-import BrandFilter from '../../components/BrandFilter';
-import CategoryFilter from '../../components/CategoryFilter';
-import SortSelect from '../../components/SortSelect';
-import ItemCard from '../../components/ItemCard';
-import Empty from '../../components/Empty';
-import ProductsService from '../../utils/product.services';
+import BrandFilter from '../../components/BrandFilter'
+import CategoryFilter from '../../components/CategoryFilter'
+import SortSelect from '../../components/SortSelect'
+import ItemCard from '../../components/ItemCard'
+import Empty from '../../components/Empty'
+import ProductsService from '../../utils/product.services'
 
 type Props = {
   products: any
@@ -46,7 +46,7 @@ const MainNav = styled.div`
 	  -webkit-text-fill-color: transparent;
     font-weight: bold;
   }
-`;
+`
 
 const Div = styled.div`
   flex: 1;
@@ -131,31 +131,31 @@ const Div = styled.div`
       }
     }
   }
-`;
+`
 
 export default function Browse({ products, brands, categories }: Props) {
-  const filteredBrands = useSelector((state: any) => state.filter.brands);
-  const filteredCategories = useSelector((state: any) => state.filter.categories);
-  const filteredSort = useSelector((state: any) => state.filter.sort);
+  const filteredBrands = useSelector((state: any) => state.filter.brands)
+  const filteredCategories = useSelector((state: any) => state.filter.categories)
+  const filteredSort = useSelector((state: any) => state.filter.sort)
 
-  let filteredProducts;
+  let filteredProducts
 
   filteredProducts =
     filteredBrands.length > 0
       ? [...products].filter((value) => filteredBrands.includes(value.brand))
-      : [...products];
+      : [...products]
 
   filteredProducts =
     filteredCategories.length > 0
       ? filteredProducts.filter((value) =>
         filteredCategories.includes(value.category)
       )
-      : filteredProducts;
+      : filteredProducts
 
   if (filteredSort === 'price_high_to_low') {
-    filteredProducts = filteredProducts.sort((a, b) => +b.price - +a.price);
+    filteredProducts = filteredProducts.sort((a, b) => +b.price - +a.price)
   } else if (filteredSort === 'price_low_to_high') {
-    filteredProducts = filteredProducts.sort((a, b) => +a.price - +b.price);
+    filteredProducts = filteredProducts.sort((a, b) => +a.price - +b.price)
   }
 
   //console.log('filteredProducts', filteredProducts);
@@ -201,19 +201,19 @@ export async function getServerSideProps(context) {
 
   const brands = items.reduce((previous, current) => {
     if (!previous.includes(current.brand)) {
-      previous.push(current.brand);
+      previous.push(current.brand)
     }
 
-    return previous;
-  }, []);
+    return previous
+  }, [])
 
   const categories = items.reduce((previous, current) => {
     if (!previous.includes(current.category)) {
-      previous.push(current.category);
+      previous.push(current.category)
     }
 
     return previous;
-  }, []);
+  }, [])
 
   return {
     props: {

@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import styled from 'styled-components'
 
-import { filterActions } from '../store/slices/filterSlice';
+import { filterActions } from '../store/slices/filterSlice'
 
 type Props = {
     by: any
@@ -26,25 +26,25 @@ const Button = styled.button`
       stroke-width: 3;
     }
   }
-`;
+`
 
 export default function SortChecker({ by }: Props) {
-    const filters = useSelector((state: any) => state.filter);
-    const [isChecked, setIsChecked] = useState(false);
-    const dispatch = useDispatch();
+    const filters = useSelector((state: any) => state.filter)
+    const [isChecked, setIsChecked] = useState(false)
+    const dispatch = useDispatch()
 
     useEffect(() => {
         if (filters.sort === by) {
-            setIsChecked(true);
+            setIsChecked(true)
         } else {
-            setIsChecked(false);
+            setIsChecked(false)
         }
-    }, [filters.sort]);
+    }, [filters.sort])
 
     const clickHandler = () => {
-        dispatch(filterActions.chooseSort(by));
-        setIsChecked(true);
-    };
+        dispatch(filterActions.chooseSort(by))
+        setIsChecked(true)
+    }
 
     return (
         <Button

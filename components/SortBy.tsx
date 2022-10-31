@@ -1,4 +1,4 @@
-import SortChecker from './SortChecker';
+import SortChecker from './SortChecker'
 
 type Props = {}
 

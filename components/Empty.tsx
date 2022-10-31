@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import { FilterIcon } from '../assets/icons';
+import { FilterIcon } from '../assets/icons'
 
 type Props = {}
 
@@ -34,7 +34,7 @@ const Div = styled.div`
   .text {
     margin-top: 24px;
   }
-`;
+`
 
 export default function Empty({ }: Props) {
   return (

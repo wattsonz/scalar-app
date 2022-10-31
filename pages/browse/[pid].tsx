@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Image from 'next/image'
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components'
 import { doc, updateDoc, arrayUnion } from 'firebase/firestore'
 
 import { db } from "../../utils/firebase-config"
@@ -47,7 +47,7 @@ const MainNav = styled.div`
 	-webkit-text-fill-color: transparent;
   font-weight: bold;
   }
-`;
+`
 
 const rotation = keyframes`
   from {
@@ -56,7 +56,7 @@ const rotation = keyframes`
   to {
     transform: rotate(360deg);
   }    
-`;
+`
 
 const Div = styled.div`
   padding: 32px;
@@ -252,21 +252,21 @@ const Div = styled.div`
       }
     }
   }
-`;
+`
 
 export default function ProductById({ id, imageURL, brand, category, name, price }: Props) {
   const [isLoading, setIsLoading] = useState(false)
-  const user = useSelector((state: any) => state.auth.user);
+  const user = useSelector((state: any) => state.auth.user)
   const cartItems = useSelector((state: any) => state.cart.items)
   const router = useRouter()
 
   const cartItem = cartItems.find(
     (item) => item.itemId === id
-  );
+  )
   const cartItemIndex = cartItems.findIndex(
     (item) => item.itemId === id
-  );
-  const isInCart = !!cartItem;
+  )
+  const isInCart = !!cartItem
 
   const addToCartHandler = () => {
     if (user) {
@@ -276,18 +276,18 @@ export default function ProductById({ id, imageURL, brand, category, name, price
           ...cartItem,
           itemQuantity: (+cartItem.itemQuantity + 1).toString(),
         };
-        const updatedItems = [...cartItems];
-        updatedItems.splice(cartItemIndex, 1, updatedItem);
+        const updatedItems = [...cartItems]
+        updatedItems.splice(cartItemIndex, 1, updatedItem)
         updateDoc(doc(db, user.uid, 'cart'), {
           items: updatedItems,
         })
           .then(() => {
-            this.removeItemHandler();
+            this.removeItemHandler()
           })
           .catch((error) => console.log(error))
           .finally(() => {
-            setIsLoading(false);
-          });
+            setIsLoading(false)
+          })
       } else {
         updateDoc(doc(db, user.uid, 'cart'), {
           items: arrayUnion({
@@ -297,13 +297,13 @@ export default function ProductById({ id, imageURL, brand, category, name, price
         })
           .catch((error) => console.log(error))
           .finally(() => {
-            setIsLoading(false);
-          });
+            setIsLoading(false)
+          })
       }
     } else {
-      router.push('/login');
+      router.push('/login')
     }
-  };
+  }
 
   return (
     <>

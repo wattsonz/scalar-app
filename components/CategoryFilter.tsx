@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import CheckBox from './CheckBox';
+import CheckBox from './CheckBox'
 
 type Props = {
-    items: any
+  items: any
 }
 
 const Div = styled.div`
@@ -35,20 +35,20 @@ const Div = styled.div`
       margin-bottom: 16px;
     }
   }
-`;
+`
 
 export default function CategoryFilter({ items }: Props) {
-    return (
-        <Div>
-            <div className="heading">Category</div>
-            {items
-                .sort((a, b) => a.localeCompare(b))
-                .map((value, index) => (
-                    <div className="item" key={index}>
-                        <CheckBox of={value} type="category" />
-                        <span className="text">{value}</span>
-                    </div>
-                ))}
-        </Div>
-    )
+  return (
+    <Div>
+      <div className="heading">Category</div>
+      {items
+        .sort((a, b) => a.localeCompare(b))
+        .map((value, index) => (
+          <div className="item" key={index}>
+            <CheckBox of={value} type="category" />
+            <span className="text">{value}</span>
+          </div>
+        ))}
+    </Div>
+  )
 }

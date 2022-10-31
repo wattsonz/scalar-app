@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import Link from 'next/link';
-import Head from 'next/head';
-import styled, { keyframes } from 'styled-components';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
-import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
+import { useState } from 'react'
+import Link from 'next/link'
+import Head from 'next/head'
+import styled, { keyframes } from 'styled-components'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { doc, setDoc } from 'firebase/firestore'
+import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
 
-import { LogoIcon } from '../assets/icons';
-import { validateEmail, validatePassword } from '../utils/formValidate';
-import { auth } from '../utils/firebase-config';
-import { db } from '../utils/firebase-config';
+import { LogoIcon } from '../assets/icons'
+import { validateEmail, validatePassword } from '../utils/formValidate'
+import { auth } from '../utils/firebase-config'
+import { db } from '../utils/firebase-config'
 
 type Props = {}
 
@@ -43,7 +43,7 @@ const MainNav = styled.div`
 	  -webkit-text-fill-color: transparent;
     font-weight: bold;
   }
-`;
+`
 
 const rotation = keyframes`
   from {
@@ -52,7 +52,7 @@ const rotation = keyframes`
   to {
     transform: rotate(360deg);
   }    
-`;
+`
 
 const Div = styled.div`
   flex: 1;
@@ -211,54 +211,54 @@ const Div = styled.div`
 `
 
 export default function SignUp({ }: Props) {
-  const [nameInput, setNameInput] = useState('');
-  const [emailInput, setEmailInput] = useState('');
-  const [passwordInput, setPasswordInput] = useState('');
-  const [startNameValidation, setStartNameValidation] = useState(false);
-  const [startEmailValidation, setStartEmailValidation] = useState(false);
-  const [startPasswordValidation, setStartPasswordValidation] = useState(false);
-  const [serverErrorMessage, setServerErrorMessage] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [nameInput, setNameInput] = useState('')
+  const [emailInput, setEmailInput] = useState('')
+  const [passwordInput, setPasswordInput] = useState('')
+  const [startNameValidation, setStartNameValidation] = useState(false)
+  const [startEmailValidation, setStartEmailValidation] = useState(false)
+  const [startPasswordValidation, setStartPasswordValidation] = useState(false)
+  const [serverErrorMessage, setServerErrorMessage] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
 
-  const router = useRouter();
-  const user = useSelector((state: any) => state.auth.user);
+  const router = useRouter()
+  const user = useSelector((state: any) => state.auth.user)
 
   if (user) {
-    router.replace('/browse');
+    router.replace('/browse')
   }
 
   const isNameValid = nameInput.length !== 0;
-  const isEmailValid = emailInput.length !== 0 && validateEmail(emailInput);
+  const isEmailValid = emailInput.length !== 0 && validateEmail(emailInput)
   const isPasswordValid =
-    passwordInput.length !== 0 && validatePassword(passwordInput);
+    passwordInput.length !== 0 && validatePassword(passwordInput)
 
   const nameInputHandler = (ev) => {
-    setServerErrorMessage('');
-    setNameInput(ev.target.value);
+    setServerErrorMessage('')
+    setNameInput(ev.target.value)
   };
 
   const emailInputHandler = (ev) => {
-    setServerErrorMessage('');
-    setEmailInput(ev.target.value);
+    setServerErrorMessage('')
+    setEmailInput(ev.target.value)
   };
 
   const passwordInputHandler = (ev) => {
-    setServerErrorMessage('');
-    setPasswordInput(ev.target.value);
+    setServerErrorMessage('')
+    setPasswordInput(ev.target.value)
   };
 
   const submitHandler = (ev) => {
-    ev.preventDefault();
+    ev.preventDefault()
 
-    setStartNameValidation(true);
-    setStartEmailValidation(true);
-    setStartPasswordValidation(true);
+    setStartNameValidation(true)
+    setStartEmailValidation(true)
+    setStartPasswordValidation(true)
 
     if (isNameValid && isEmailValid && isPasswordValid && !serverErrorMessage) {
-      setIsLoading(true);
+      setIsLoading(true)
       createUserWithEmailAndPassword(auth, emailInput, passwordInput)
         .then((userCredential) => {
-          const uid = userCredential.user.uid;
+          const uid = userCredential.user.uid
           setDoc(doc(db, uid, 'account'), {
             name: nameInput,
             email: emailInput,
@@ -266,24 +266,24 @@ export default function SignUp({ }: Props) {
             .then(() => {
               setDoc(doc(db, uid, 'cart'), {
                 items: [],
-              });
-            });
+              })
+            })
 
         })
         .catch((error) => {
-          const errorCode = error.code;
+          const errorCode = error.code
 
           if (errorCode === 'auth/email-already-in-use') {
-            setServerErrorMessage('Email address already in use.');
+            setServerErrorMessage('Email address already in use.')
           } else {
-            setServerErrorMessage('Something went wrong.');
+            setServerErrorMessage('Something went wrong.')
           }
         })
         .finally(() => {
-          setIsLoading(false);
-        });
+          setIsLoading(false)
+        })
     }
-  };
+  }
 
   return (
     <>

@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import styled from 'styled-components';
+import Image from 'next/image'
+import styled from 'styled-components'
 
-import SuperLink from './SuperLink';
-import { getFormattedCurrency } from '../utils/getFormattedCurrency';
+import SuperLink from './SuperLink'
+import { getFormattedCurrency } from '../utils/getFormattedCurrency'
 
 type Props = {
   id: string
@@ -41,7 +41,7 @@ const Div = styled.div`
       font-weight: 500;
     }
   }
-`;
+`
 
 export default function ItemCard({ id, imageURL, brand, name, price, setPriority }: Props) {
   return (

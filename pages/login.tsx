@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import Link from 'next/link';
-import Head from 'next/head';
-import styled, { keyframes } from 'styled-components';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
+import { useState } from 'react'
+import Link from 'next/link'
+import Head from 'next/head'
+import styled, { keyframes } from 'styled-components'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
 
-import { LogoIcon } from '../assets/icons';
-import { validateEmail, validatePassword } from '../utils/formValidate';
-import { auth } from '../utils/firebase-config';
+import { LogoIcon } from '../assets/icons'
+import { validateEmail, validatePassword } from '../utils/formValidate'
+import { auth } from '../utils/firebase-config'
 
 type Props = {}
 
@@ -51,7 +51,7 @@ const MainNav = styled.div`
 	  -webkit-text-fill-color: transparent;
     font-weight: bold;
   }
-`;
+`
 
 const Div = styled.div`
   flex: 1;
@@ -209,64 +209,64 @@ const Div = styled.div`
       padding: 16px;
     }
   }
-`;
+`
 
 export default function Login({ }: Props) {
-  const [emailInput, setEmailInput] = useState('');
-  const [passwordInput, setPasswordInput] = useState('');
-  const [startEmailValidation, setStartEmailValidation] = useState(false);
-  const [startPasswordValidation, setStartPasswordValidation] = useState(false);
-  const [serverErrorMessage, setServerErrorMessage] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [emailInput, setEmailInput] = useState('')
+  const [passwordInput, setPasswordInput] = useState('')
+  const [startEmailValidation, setStartEmailValidation] = useState(false)
+  const [startPasswordValidation, setStartPasswordValidation] = useState(false)
+  const [serverErrorMessage, setServerErrorMessage] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
 
-  const isEmailValid = emailInput.length !== 0 && validateEmail(emailInput);
+  const isEmailValid = emailInput.length !== 0 && validateEmail(emailInput)
   const isPasswordValid =
-    passwordInput.length !== 0 && validatePassword(passwordInput);
+    passwordInput.length !== 0 && validatePassword(passwordInput)
 
-  const router = useRouter();
-  const user = useSelector((state: any) => state.auth.user);
+  const router = useRouter()
+  const user = useSelector((state: any) => state.auth.user)
 
   if (user) {
-    router.replace('/browse');
+    router.replace('/browse')
   }
 
   const emailInputHandler = (ev) => {
-    setServerErrorMessage('');
-    setEmailInput(ev.target.value);
-  };
+    setServerErrorMessage('')
+    setEmailInput(ev.target.value)
+  }
 
   const passwordInputHandler = (ev) => {
-    setServerErrorMessage('');
-    setPasswordInput(ev.target.value);
-  };
+    setServerErrorMessage('')
+    setPasswordInput(ev.target.value)
+  }
 
   const submitHandler = (ev) => {
-    ev.preventDefault();
+    ev.preventDefault()
 
-    setStartEmailValidation(true);
-    setStartPasswordValidation(true);
+    setStartEmailValidation(true)
+    setStartPasswordValidation(true)
 
     if (isEmailValid && isPasswordValid && !serverErrorMessage) {
-      setIsLoading(true);
+      setIsLoading(true)
       signInWithEmailAndPassword(auth, emailInput, passwordInput)
         .then((user) => { })
         .catch((error) => {
-          const errorCode = error.code;
-          console.log(errorCode);
+          const errorCode = error.code
+          console.log(errorCode)
 
           if (errorCode === 'auth/user-not-found') {
-            setServerErrorMessage("Account doesn't exist.");
+            setServerErrorMessage("Account doesn't exist.")
           } else if (errorCode === 'auth/wrong-password') {
-            setServerErrorMessage('Invalid password.');
+            setServerErrorMessage('Invalid password.')
           } else {
-            setServerErrorMessage('Something went wrong.');
+            setServerErrorMessage('Something went wrong.')
           }
         })
         .finally(() => {
-          setIsLoading(false);
-        });
+          setIsLoading(false)
+        })
     }
-  };
+  }
 
   return (
     <>

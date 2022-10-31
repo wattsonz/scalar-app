@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import { useSelector } from 'react-redux';
-import styled from 'styled-components';
-import { doc, updateDoc, arrayRemove } from 'firebase/firestore';
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
+import { useSelector } from 'react-redux'
+import styled from 'styled-components'
+import { doc, updateDoc, arrayRemove } from 'firebase/firestore'
 
-import SuperLink from './SuperLink';
-import { ChevronDownIcon, CloseIcon } from '../assets/icons';
-import { db } from '../utils/firebase-config';
-import Modal from './Modal';
-import QuantityPicker from './QuantityPicker';
-import { getFormattedCurrency } from '../utils/getFormattedCurrency';
+import SuperLink from './SuperLink'
+import { ChevronDownIcon, CloseIcon } from '../assets/icons'
+import { db } from '../utils/firebase-config'
+import Modal from './Modal'
+import QuantityPicker from './QuantityPicker'
+import { getFormattedCurrency } from '../utils/getFormattedCurrency'
 
 type Props = {
   index: any
@@ -143,7 +143,7 @@ const Div = styled.div`
   @media (max-width: 640px) {
     width: 100%;
   }
-`;
+`
 
 const ModalDiv = styled.div`
   padding: 16px;
@@ -193,7 +193,7 @@ const ModalDiv = styled.div`
       }
     }
   }
-`;
+`
 
 export default function CartSingleCard({
   index,
@@ -204,10 +204,10 @@ export default function CartSingleCard({
   price,
   quantity,
 }: Props) {
-  const [showQuantityPicker, setShowQuantityPicker] = useState(false);
-  const [currentQuantity, setCurrentQuantity] = useState(quantity);
-  const user = useSelector((state: any) => state.auth.user);
-  const cartItems = useSelector((state: any) => state.cart.items);
+  const [showQuantityPicker, setShowQuantityPicker] = useState(false)
+  const [currentQuantity, setCurrentQuantity] = useState(quantity)
+  const user = useSelector((state: any) => state.auth.user)
+  const cartItems = useSelector((state: any) => state.cart.items)
 
   const removeItemHandler = () => {
     updateDoc(doc(db, user.uid, 'cart'), {
@@ -217,36 +217,36 @@ export default function CartSingleCard({
       }),
     })
       .then(() => { })
-      .catch((error) => console.log(error));
-  };
+      .catch((error) => console.log(error))
+  }
 
   const openQuantityPickerHandler = () => {
-    setShowQuantityPicker(true);
-  };
+    setShowQuantityPicker(true)
+  }
 
   const closeQuantityPickerHandler = () => {
-    setShowQuantityPicker(false);
-  };
+    setShowQuantityPicker(false)
+  }
 
   const setQuantityHandler = (selectedQuantity) => {
-    setCurrentQuantity(selectedQuantity);
+    setCurrentQuantity(selectedQuantity)
     const item = cartItems.find(
       (item) => item.itemId === id
-    );
+    )
     const updatedItem = {
       ...item,
       itemQuantity: selectedQuantity,
-    };
-    const updatedItems = [...cartItems];
-    updatedItems.splice(index, 1, updatedItem);
+    }
+    const updatedItems = [...cartItems]
+    updatedItems.splice(index, 1, updatedItem)
     updateDoc(doc(db, user.uid, 'cart'), {
       items: updatedItems,
     })
       .then(() => { })
       .catch((error) => {
-        console.log(error);
-      });
-  };
+        console.log(error)
+      })
+  }
 
   return (
     <>

@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import styled from 'styled-components';
+import Link from 'next/link'
+import styled from 'styled-components'
 
-import { UserIcon2 } from '../assets/icons';
+import { UserIcon2 } from '../assets/icons'
 
 type Props = {
   type: any

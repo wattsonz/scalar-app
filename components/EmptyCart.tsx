@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import { CartIcon } from '../assets/icons';
+import { CartIcon } from '../assets/icons'
 
 type Props = {}
 
@@ -35,7 +35,7 @@ const Div = styled.div`
   .text {
     margin-top: 24px;
   }
-`;
+`
 
 export default function EmptyCart({ }: Props) {
   return (

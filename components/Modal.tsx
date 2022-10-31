@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import { CloseIcon } from '../assets/icons';
+import { CloseIcon } from '../assets/icons'
 
 type Props = {
-    closeHandler: any
-    children: React.ReactNode
+  closeHandler: any
+  children: React.ReactNode
 }
 
 const Div = styled.div`
@@ -47,18 +47,18 @@ const Div = styled.div`
       margin-left: auto;
     }
   }
-`;
+`
 
 export default function Modal({ closeHandler, children }: Props) {
-    return (
-        <Div>
-            <div className="backdrop" onClick={closeHandler}></div>
-            <div className="modal">
-                <button className="close" onClick={closeHandler}>
-                    <CloseIcon />
-                </button>
-                {children}
-            </div>
-        </Div>
-    )
+  return (
+    <Div>
+      <div className="backdrop" onClick={closeHandler}></div>
+      <div className="modal">
+        <button className="close" onClick={closeHandler}>
+          <CloseIcon />
+        </button>
+        {children}
+      </div>
+    </Div>
+  )
 }

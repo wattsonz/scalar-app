@@ -1,5 +1,3 @@
-
-
 type Props = {
     currentQuantity: any
     onSetQuantity: any

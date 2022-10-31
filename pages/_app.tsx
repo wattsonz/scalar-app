@@ -1,7 +1,7 @@
-import * as React from 'react';
+import * as React from 'react'
 import { AppProps } from 'next/app'
-import { Provider } from 'react-redux';
-import styled, { createGlobalStyle } from 'styled-components';
+import { Provider } from 'react-redux'
+import styled, { createGlobalStyle } from 'styled-components'
 
 import { store } from '../store/store'
 import NavBar from '../components/NavBar'
@@ -18,14 +18,14 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     min-height: 100vh;
-    font-family: 'Inter', sans-serif;               
+    font-family: 'Inter', sans-serif;    
     -webkit-tap-highlight-color: transparent;
   }
 
   *::selection {
     background-color: #ffb274;
   }
-`;
+`
 
 const Container = styled.div`
   min-height: 100vh;
@@ -34,7 +34,7 @@ const Container = styled.div`
   margin: auto;
   display: flex;
   flex-direction: column;
-`;
+`
 
 function _app({ Component, pageProps: { session, ...pageProps } }: AppProps) {
 

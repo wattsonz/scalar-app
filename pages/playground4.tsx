@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import ProductServices from '../utils/product.services'
+import Loading from '../components/Loading'
 
 type Props = {}
 
@@ -19,7 +20,7 @@ export default function Playground4({ }: Props) {
 
     return (
         <>
-            <h1>Playground4</h1>
+            <Loading />
         </>
     )
 }

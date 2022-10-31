@@ -1,7 +1,7 @@
-import Select from 'react-select';
-import { useDispatch } from 'react-redux';
+import Select from 'react-select'
+import { useDispatch } from 'react-redux'
 
-import { filterActions } from '../store/slices/filterSlice';
+import { filterActions } from '../store/slices/filterSlice'
 
 type Props = {}
 
@@ -49,11 +49,11 @@ const customStyles = {
 };
 
 export default function SortSelect({ }: Props) {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
     const changeHandler = (selectedOption) => {
-        dispatch(filterActions.chooseSort(selectedOption.value));
-    };
+        dispatch(filterActions.chooseSort(selectedOption.value))
+    }
     return (
         <Select
             blurInputOnSelect

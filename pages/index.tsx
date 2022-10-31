@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import Head from 'next/head';
-import styled from 'styled-components';
+import Link from 'next/link'
+import Head from 'next/head'
+import styled from 'styled-components'
 
 type Props = {}
 
@@ -60,7 +60,7 @@ const Div = styled.div`
   background-image: linear-gradient(transparent 64px, #F243B3 50%, #FFCA47 100%);
 }
 
-`;
+`
 
 export default function Home({ }: Props) {
 

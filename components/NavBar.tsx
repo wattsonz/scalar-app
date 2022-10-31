@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+import styled from 'styled-components'
+import { useSelector } from 'react-redux'
 import { signOut } from 'firebase/auth'
 
-import { LogoIcon, CartIcon, UserIcon } from '../assets/icons';
-import LoginPanel from './LoginPanel';
-import SuperLink from './SuperLink';
+import { LogoIcon, CartIcon, UserIcon } from '../assets/icons'
+import LoginPanel from './LoginPanel'
+import SuperLink from './SuperLink'
 import { auth } from '../utils/firebase-config'
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/router'
 
 type Props = {}
 
@@ -142,43 +142,43 @@ const Div = styled.div`
       }
     }
   }
-`;
+`
 
 export default function NavBar({ }: Props) {
-  const router = useRouter();
-  const [isMenuVisible, setIsMenuVisible] = useState(false);
-  const cartItems = useSelector((state: any) => state.cart.items);
+  const router = useRouter()
+  const [isMenuVisible, setIsMenuVisible] = useState(false)
+  const cartItems = useSelector((state: any) => state.cart.items)
   const cartCount = cartItems.reduce(
     (prev, cur) => prev + +cur.itemQuantity,
     0
-  );
+  )
 
   const toggleMenuHandler = () => {
     if (isMenuVisible) {
-      closeMenu();
+      closeMenu()
     } else {
-      openMenu();
+      openMenu()
     }
-  };
+  }
 
   const openMenu = () => {
-    setIsMenuVisible(true);
-  };
+    setIsMenuVisible(true)
+  }
 
   const closeMenu = () => {
-    setIsMenuVisible(false);
-  };
+    setIsMenuVisible(false)
+  }
 
   const logOutHandler = () => {
     signOut(auth)
       .then(() => {
-        closeMenu();
+        closeMenu()
       })
       .catch((error) => {
-        console.log(error);
-      });
-    router.replace('/');
-  };
+        console.log(error)
+      })
+    router.replace('/')
+  }
   return (
     <Div>
       <h1 className="title">

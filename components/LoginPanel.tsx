@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import { useSelector } from 'react-redux';
-import { useRouter } from 'next/router';
-import OutsideClickHandler from 'react-outside-click-handler';
+import styled from 'styled-components'
+import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
+import OutsideClickHandler from 'react-outside-click-handler'
 
 type Props = {
   onClose: any
@@ -60,26 +60,26 @@ const Div = styled.div`
       background-color: #f4f4f4;
     }
   }
-`;
+`
 
 export default function LoginPanel({ onClose, onLogOut }: Props) {
-  const router = useRouter();
-  const user = useSelector((state: any) => state.auth.user);
+  const router = useRouter()
+  const user = useSelector((state: any) => state.auth.user)
 
   const loginHandler = () => {
-    router.push('/login');
-    onClose();
-  };
+    router.push('/login')
+    onClose()
+  }
 
   const collectionsHandler = () => {
-    router.push('/browse');
-    onClose();
-  };
+    router.push('/browse')
+    onClose()
+  }
 
   const cartHandler = () => {
-    router.push('/cart');
-    onClose();
-  };
+    router.push('/cart')
+    onClose()
+  }
 
   return (
     <Div>

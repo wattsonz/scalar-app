@@ -5,9 +5,9 @@ export default function Document() {
         <Html>
             <Head>
                 <meta name="title" content="scalar" />
-                <meta name="description" content="| Online Shopping" />
+                <meta name="description" content="Online Shopping" />
                 <meta property="og:type" content="website" />
-                {/* <meta property="og:url" content="https://scalarshop.vercel.app" /> */}
+                <meta property="og:url" content="https://scalar-app.vercel.app" />
                 <meta property="og:title" content="scalar" />
                 <meta property="og:description" content="Online Shopping" />
                 <meta

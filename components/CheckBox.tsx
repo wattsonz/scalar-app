@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import styled from 'styled-components'
 
-import { CheckIcon } from '../assets/icons';
-import { filterActions } from '../store/slices/filterSlice';
+import { CheckIcon } from '../assets/icons'
+import { filterActions } from '../store/slices/filterSlice'
 
 type Props = {
     of: any,
@@ -33,42 +33,42 @@ const Button = styled.button`
       stroke-width: 3;
     }
   }
-`;
+`
 
 export default function CheckBox({ of, type }: Props) {
-    const filters = useSelector((state: any) => state.filter);
-    const [isChecked, setIsChecked] = useState(false);
-    const dispatch = useDispatch();
+    const filters = useSelector((state: any) => state.filter)
+    const [isChecked, setIsChecked] = useState(false)
+    const dispatch = useDispatch()
 
     useEffect(() => {
         if (type === 'brand') {
             if (filters.brands.includes(of)) {
-                setIsChecked(true);
+                setIsChecked(true)
             }
         } else if (type === 'category') {
             if (filters.categories.includes(of)) {
-                setIsChecked(true);
+                setIsChecked(true)
             }
         }
-    }, []);
+    }, [])
 
     const clickHandler = () => {
         if (isChecked) {
             if (type === 'brand') {
-                dispatch(filterActions.deselectBrand(of));
+                dispatch(filterActions.deselectBrand(of))
             } else if (type === 'category') {
-                dispatch(filterActions.deselectCategory(of));
+                dispatch(filterActions.deselectCategory(of))
             }
         } else {
             if (type === 'brand') {
-                dispatch(filterActions.selectBrand(of));
+                dispatch(filterActions.selectBrand(of))
             } else if (type === 'category') {
-                dispatch(filterActions.selectCategory(of));
+                dispatch(filterActions.selectCategory(of))
             }
         }
 
-        setIsChecked((prevValue) => !prevValue);
-    };
+        setIsChecked((prevValue) => !prevValue)
+    }
 
     return isChecked ? (
         <Button className="checked" onClick={clickHandler}>
@@ -76,5 +76,5 @@ export default function CheckBox({ of, type }: Props) {
         </Button>
     ) : (
         <Button onClick={clickHandler}></Button>
-    );
+    )
 }
