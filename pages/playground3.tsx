@@ -24,23 +24,12 @@ type Props = {}
 export default function Playground3({ }: Props) {
     const [products, setProducts] = useState([])
 
-    // useEffect(() => {
-    //     ProductService.addProduct({
-    //         id: "00303",
-    //         imageURL: "https://firebasestorage.googleapis.com/v0/b/tiptop-store.appspot.com/o/Ae_Shirt_1.jpg?alt=media",
-    //         brand: "Logitech",
-    //         category: "Mousepad",
-    //         name: "Logitech Mousepad Speed",
-    //         price: "3990"
-    //     })
-    // }, [])
-
     const addThing = async () => {
         console.log("addThing ON")
 
         await ProductService.addProduct({
             id: "00303",
-            imageURL: "https://firebasestorage.googleapis.com/v0/b/tiptop-store.appspot.com/o/Ae_Shirt_1.jpg?alt=media",
+            imageURL: "",
             brand: "Logitech",
             category: "Mousepad",
             name: "Logitech Mousepad Speed",

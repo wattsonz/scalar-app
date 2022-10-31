@@ -47,7 +47,7 @@ const MainNav = styled.div`
   span {
     /* color: #b0b0b0; */
     background: linear-gradient(to right, #eb01c4 0%, #ff8c00 100%);
-    background-clip: text;
+    -webkit-background-clip: text;
 	  -webkit-text-fill-color: transparent;
     font-weight: bold;
   }
@@ -175,14 +175,6 @@ const Div = styled.div`
       border-radius: 50%;
       display: block;
       animation: ${rotation} 1s linear infinite;
-
-      &.small {
-        margin-left: 8px;
-        width: 14px;
-        height: 14px;
-        border: 1.5px solid #e06500;
-        border-bottom-color: transparent;
-      }
     }
 
     .info {

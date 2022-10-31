@@ -39,7 +39,7 @@ const MainNav = styled.div`
   span {
     /* color: #b0b0b0; */
     background: linear-gradient(to right, #eb01c4 0%, #ff8c00 100%);
-    background-clip: text;
+    -webkit-background-clip: text;
 	  -webkit-text-fill-color: transparent;
     font-weight: bold;
   }

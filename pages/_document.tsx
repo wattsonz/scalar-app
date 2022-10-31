@@ -4,23 +4,15 @@ export default function Document() {
     return (
         <Html>
             <Head>
-                <meta name="title" content="Tiptop" />
-                <meta name="description" content="Online Shopping for Men" />
+                <meta name="title" content="scalar" />
+                <meta name="description" content="| Online Shopping" />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://tiptopstore.vercel.app" />
-                <meta property="og:title" content="Tiptop" />
-                <meta property="og:description" content="Online Shopping for Men" />
+                {/* <meta property="og:url" content="https://scalarshop.vercel.app" /> */}
+                <meta property="og:title" content="scalar" />
+                <meta property="og:description" content="Online Shopping" />
                 <meta
                     property="og:image"
-                    content="https://user-images.githubusercontent.com/48406108/158584944-2fedf004-1425-4aa7-b1ee-46977c3beb19.png"
-                />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:url" content="https://tiptopstore.vercel.app" />
-                <meta name="twitter:title" content="Tiptop" />
-                <meta name="twitter:description" content="Online Shopping for Men" />
-                <meta
-                    name="twitter:image"
-                    content="https://user-images.githubusercontent.com/48406108/158584944-2fedf004-1425-4aa7-b1ee-46977c3beb19.png"
+                    content=""
                 />
                 <link
                     rel="apple-touch-icon"
@@ -39,8 +31,7 @@ export default function Document() {
                     sizes="16x16"
                     href="/favicon-16x16.png"
                 />
-                {/* <link rel="manifest" href="/site.webmanifest" /> */}
-                <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+                <link rel="manifest" href="/site.webmanifest" />
                 <meta name="theme-color" content="ffffff" />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link

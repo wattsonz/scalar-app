@@ -21,8 +21,8 @@ const Div = styled.div`
     font-weight: 600;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     background: linear-gradient(to right, #000000 50%, #ff8c00 100%);
-    background-clip: text;
-	  -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-weight: bold;
 
     @media (max-width: 640px) {

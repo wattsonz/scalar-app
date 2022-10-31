@@ -43,7 +43,7 @@ const MainNav = styled.div`
 
   span {
   background: linear-gradient(to right, #eb01c4 0%, #ff8c00 100%);
-  background-clip: text;
+  -webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
   font-weight: bold;
   }
@@ -310,7 +310,7 @@ export default function ProductById({ id, imageURL, brand, category, name, price
       <MainNav>
         <Link href="/">Home</Link>
         {' / '}
-        <Link href="/browse">Showcase</Link>
+        <Link href="/browse">Browse</Link>
         {' / '}
         <span>{` ${brand} ${name}`}</span>
       </MainNav>

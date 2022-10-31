@@ -7,6 +7,7 @@ import { LogoIcon, CartIcon, UserIcon } from '../assets/icons';
 import LoginPanel from './LoginPanel';
 import SuperLink from './SuperLink';
 import { auth } from '../utils/firebase-config'
+import { useRouter } from 'next/router';
 
 type Props = {}
 
@@ -144,6 +145,7 @@ const Div = styled.div`
 `;
 
 export default function NavBar({ }: Props) {
+  const router = useRouter();
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const cartItems = useSelector((state: any) => state.cart.items);
   const cartCount = cartItems.reduce(
@@ -175,6 +177,7 @@ export default function NavBar({ }: Props) {
       .catch((error) => {
         console.log(error);
       });
+    router.replace('/');
   };
   return (
     <Div>

@@ -42,7 +42,7 @@ const MainNav = styled.div`
   span {
     /* color: #b0b0b0; */
   background: linear-gradient(to right, #eb01c4 0%, #ff8c00 100%);
-  background-clip: text;
+  -webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
   font-weight: bold;
   }
@@ -157,7 +157,7 @@ const Div = styled.div`
     font-weight: 500;
     margin-bottom: 16px;
     background: linear-gradient(to right, #a4ea96 0%, #047500 100%);
-    background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
     
@@ -207,12 +207,11 @@ export default function Cart({ }: Props) {
   // test()
 
   useEffect(() => {
-
     const fetchItem = async () => {
       const items = await Promise.all(cartItems.map(async (item) => {
         const itemDetails = await ProductService.getProductById(item.itemId)
         const [itemDetail] = itemDetails
-        console.log('itemDetails => ', itemDetail)
+        // console.log('itemDetails => ', itemDetail)
 
         return {
           quantity: item.itemQuantity,
@@ -241,9 +240,6 @@ export default function Cart({ }: Props) {
     //   setIsLoading(false);
     //   return items;
     // });
-
-
-
   }, [cartItems]);
 
   const getitemDetails = async (itemId) => {

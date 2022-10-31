@@ -42,7 +42,7 @@ const MainNav = styled.div`
   span {
     /* color: #b0b0b0; */
     background: linear-gradient(to right, #eb01c4 0%, #ff8c00 100%);
-    background-clip: text;
+    -webkit-background-clip: text;
 	  -webkit-text-fill-color: transparent;
     font-weight: bold;
   }
@@ -63,7 +63,7 @@ const Div = styled.div`
       font-size: 50px;
       font-weight: 500;
       background: linear-gradient(to right, #000000 0%, #f1ff5c 100%);
-        background-clip: text;
+        -webkit-background-clip: text;
 	      -webkit-text-fill-color: transparent;
         font-weight: bold;
     }
@@ -83,7 +83,7 @@ const Div = styled.div`
         font-weight: 500;
         margin-right: auto;
         background: linear-gradient(to right, #0191eb 0%, #000000 100%);
-        background-clip: text;
+        -webkit-background-clip: text;
 	      -webkit-text-fill-color: transparent;
         font-weight: bold;
         /* border: #0191eb solid 5px;
