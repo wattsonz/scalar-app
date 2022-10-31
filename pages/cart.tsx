@@ -277,7 +277,7 @@ export default function Cart({ }: Props) {
         <title>Cart</title>
       </Head>
       <MainNav>
-        <Link href="/">Home</Link> / <span>Cart</span>
+        <Link href="/">Home</Link> / <Link href="/browse">Browse</Link> / <span>Cart</span>
       </MainNav>
       {isOrderPlaced ? (
         <OrderPlaced />
