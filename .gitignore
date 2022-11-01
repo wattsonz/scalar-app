@@ -38,7 +38,6 @@ package-lock.json
 
 ### VisualStudioCode ###
 .vscode
-!.vscode/launch.json
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
