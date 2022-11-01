@@ -59,7 +59,6 @@ const Div = styled.div`
   /* z-index: 3; */
   background-image: linear-gradient(transparent 64px, #F243B3 50%, #FFCA47 100%);
 }
-
 `
 
 export default function Home({ }: Props) {

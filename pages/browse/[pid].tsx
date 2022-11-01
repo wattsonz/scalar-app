@@ -336,9 +336,7 @@ export default function ProductById({ id, imageURL, brand, category, name, price
           <div className="info">
             <div className="brand">{brand}</div>
             <div className="name">{name}</div>
-            <div className="price">{`${getFormattedCurrency(
-              price
-            )} Baht`}</div>
+            <div className="price">{`${getFormattedCurrency(price)} Baht`}</div>
             <div className="actions">
               <button
                 className="cart"
