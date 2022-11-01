@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
@@ -9,6 +9,7 @@ import { doc, updateDoc, arrayUnion } from 'firebase/firestore'
 import { db } from "../../utils/firebase-config"
 import ProductService from "../../utils/product.services"
 import { getFormattedCurrency } from "../../utils/getFormattedCurrency"
+import Loading from '../../components/Loading'
 
 type Props = {
   id: any
@@ -256,6 +257,7 @@ const Div = styled.div`
 
 export default function ProductById({ id, imageURL, brand, category, name, price }: Props) {
   const [isLoading, setIsLoading] = useState(false)
+  const [isLoadingMain, setIsLoadingMain] = useState(true)
   const user = useSelector((state: any) => state.auth.user)
   const cartItems = useSelector((state: any) => state.cart.items)
   const router = useRouter()
@@ -267,6 +269,12 @@ export default function ProductById({ id, imageURL, brand, category, name, price
     (item) => item.itemId === id
   )
   const isInCart = !!cartItem
+
+  useEffect(() => {
+    if (id && imageURL && brand && category && name && price) {
+      setIsLoadingMain(false)
+    }
+  }, [])
 
   const addToCartHandler = () => {
     if (user) {
@@ -305,7 +313,7 @@ export default function ProductById({ id, imageURL, brand, category, name, price
     }
   }
 
-  return (
+  return (isLoadingMain ? <Loading /> : (
     <>
       <MainNav>
         <Link href="/">Home</Link>
@@ -343,6 +351,7 @@ export default function ProductById({ id, imageURL, brand, category, name, price
         </div>
       </Div>
     </>
+  )
   )
 }
 

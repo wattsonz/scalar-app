@@ -16,6 +16,7 @@ type Props = {
   products: any
   brands: any
   categories: any
+  props: any
 }
 
 const MainNav = styled.div`
@@ -142,12 +143,13 @@ export default function Browse({ products, brands, categories }: Props) {
   const filteredSort = useSelector((state: any) => state.filter.sort)
 
   useEffect(() => {
-    if (products) {
+    if (products && brands && categories) {
       setIsLoading(false)
     }
   }, [])
 
-  // console.log('products --> ', products)
+  // console.log('props --> ', props);
+  // console.log('products --> ', products, brands, categories)
   // console.log('isLoading --> ', isLoading)
 
   let filteredProducts
