@@ -275,8 +275,7 @@ export default function ProductById({ id, imageURL, brand, category, name, price
     (item) => item.itemId === id
   )
   const isInCart = !!cartItem
-
-
+  // console.log('isLoadingMain ', isLoadingMain);
 
   const addToCartHandler = () => {
     if (user) {

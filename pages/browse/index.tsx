@@ -170,9 +170,7 @@ export default function Browse({ products, brands, categories }: Props) {
   } else if (filteredSort === 'price_low_to_high') {
     filteredProducts = filteredProducts.sort((a, b) => +a.price - +b.price)
   }
-
   //console.log('filteredProducts', filteredProducts)
-
 
   return (
     isLoading ? <Loading /> : (
