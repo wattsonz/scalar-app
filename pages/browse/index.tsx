@@ -16,7 +16,6 @@ type Props = {
   products: any
   brands: any
   categories: any
-  props: any
 }
 
 const MainNav = styled.div`
