@@ -225,7 +225,7 @@ export async function getServerSideProps(context) {
       previous.push(current.category)
     }
 
-    return previous;
+    return previous
   }, [])
 
   return {
