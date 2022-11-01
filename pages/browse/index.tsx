@@ -151,7 +151,7 @@ export default function Browse({ products, brands, categories }: Props) {
   // console.log('products --> ', products, brands, categories)
   // console.log('isLoading --> ', isLoading)
 
-  let filteredProducts
+  let filteredProducts: any
 
   filteredProducts =
     filteredBrands.length > 0
