@@ -12,7 +12,6 @@ import Empty from '../../components/Empty'
 import ProductsService from '../../utils/product.services'
 import Loading from '../../components/Loading'
 
-
 type Props = {
   products: any
   brands: any
