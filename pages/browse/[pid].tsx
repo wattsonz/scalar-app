@@ -348,7 +348,7 @@ export default function ProductById({ id, imageURL, brand, category, name, price
 
 export async function getServerSideProps(context) {
   let product = {}
-  //console.log('context from [pid] ->', context);
+  //console.log('context from [pid] ->', context)
 
   const pid = context.params.pid
   const promiseItem = ProductService.getProductById(pid)

@@ -47,7 +47,7 @@ class ProductService {
                     fetched = true;
                     resolve(item);
                 } else {
-                    // console.log('false from product.services');
+                    // console.log('false from product.services')
                 }
             })
         })

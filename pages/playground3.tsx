@@ -66,7 +66,7 @@ export default function Playground3({ }: Props) {
                         });
                     })
                     .catch((error) => {
-                        console.log(error);
+                        console.log(error)
                     });
             }).catch((error) => { new Error(error) })
     }
