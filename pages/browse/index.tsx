@@ -136,16 +136,16 @@ const Div = styled.div`
 `
 
 export default function Browse({ products, brands, categories }: Props) {
-  const [isLoading, setIsLoading] = useState(true)
-  const filteredBrands = useSelector((state: any) => state.filter.brands)
-  const filteredCategories = useSelector((state: any) => state.filter.categories)
-  const filteredSort = useSelector((state: any) => state.filter.sort)
-
   useEffect(() => {
     if (products && brands && categories) {
       setIsLoading(false)
     }
   }, [])
+
+  const [isLoading, setIsLoading] = useState(true)
+  const filteredBrands = useSelector((state: any) => state.filter.brands)
+  const filteredCategories = useSelector((state: any) => state.filter.categories)
+  const filteredSort = useSelector((state: any) => state.filter.sort)
 
   // console.log('props --> ', props);
   // console.log('products --> ', products, brands, categories)
