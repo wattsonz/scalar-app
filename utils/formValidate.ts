@@ -5,6 +5,4 @@ export const validateEmail = (email) => {
     return regEx.test(String(email).toLowerCase())
 }
 
-export const validatePassword = (password) => {
-    return password.length >= 6;
-}
+export const validatePassword = (password) => password.length >= 6

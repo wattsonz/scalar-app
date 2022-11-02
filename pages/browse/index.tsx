@@ -10,7 +10,7 @@ import SortSelect from '../../components/SortSelect'
 import ItemCard from '../../components/ItemCard'
 import Empty from '../../components/Empty'
 import ProductsService from '../../utils/product.services'
-import Loading from '../../components/Loading'
+// import Loading from '../../components/Loading'
 
 type Props = {
   products: any
@@ -136,20 +136,9 @@ const Div = styled.div`
 `
 
 export default function Browse({ products, brands, categories }: Props) {
-  useEffect(() => {
-    if (products && brands && categories) {
-      setIsLoading(false)
-    }
-  }, [])
-
-  const [isLoading, setIsLoading] = useState(true)
   const filteredBrands = useSelector((state: any) => state.filter.brands)
   const filteredCategories = useSelector((state: any) => state.filter.categories)
   const filteredSort = useSelector((state: any) => state.filter.sort)
-
-  // console.log('props --> ', props);
-  // console.log('products --> ', products, brands, categories)
-  // console.log('isLoading --> ', isLoading)
 
   let filteredProducts: any
 
@@ -173,39 +162,37 @@ export default function Browse({ products, brands, categories }: Props) {
   //console.log('filteredProducts', filteredProducts)
 
   return (
-    isLoading ? <Loading /> : (
-      <>
-        <Head>
-          <title>Browse</title>
-        </Head>
-        <MainNav>
-          <Link href="/">Home</Link> / <span>Browse</span>
-        </MainNav>
-        <Div>
-          <aside className="aside">
-            <div className="title">Filters</div>
-            <BrandFilter items={brands} />
-            <CategoryFilter items={categories} />
-          </aside>
+    <>
+      <Head>
+        <title>Browse</title>
+      </Head>
+      <MainNav>
+        <Link href="/">Home</Link> / <span>Browse</span>
+      </MainNav>
+      <Div>
+        <aside className="aside">
+          <div className="title">Filters</div>
+          <BrandFilter items={brands} />
+          <CategoryFilter items={categories} />
+        </aside>
 
-          <main className="main">
-            <div className="top">
-              <div className="title">Showcase</div>
-              <SortSelect />
+        <main className="main">
+          <div className="top">
+            <div className="title">Showcase</div>
+            <SortSelect />
+          </div>
+          {filteredProducts.length > 0 ? (
+            <div className="products">
+              {filteredProducts.map((item, index) => (
+                <ItemCard key={item.id} {...item} setPriority={index < 8} />
+              ))}
             </div>
-            {filteredProducts.length > 0 ? (
-              <div className="products">
-                {filteredProducts.map((item, index) => (
-                  <ItemCard key={item.id} {...item} setPriority={index < 8} />
-                ))}
-              </div>
-            ) : (
-              <Empty />
-            )}
-          </main>
-        </Div>
-      </>
-    )
+          ) : (
+            <Empty />
+          )}
+        </main>
+      </Div>
+    </>
   )
 }
 

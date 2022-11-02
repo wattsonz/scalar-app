@@ -6,7 +6,6 @@ import { useAppDispatch } from '../store/store'
 type Props = {}
 
 export default function Playground1({ }: Props) {
-
     const dispatch = useAppDispatch()
     const testReducer = useSelector(testSelector)
 

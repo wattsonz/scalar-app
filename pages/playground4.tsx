@@ -5,7 +5,6 @@ import Loading from '../components/Loading'
 type Props = {}
 
 export default function Playground4({ }: Props) {
-
     useEffect(() => {
         const a = fetchProductById('00103')
         let b: any

@@ -256,14 +256,7 @@ const Div = styled.div`
 `
 
 export default function ProductById({ id, imageURL, brand, category, name, price }: Props) {
-  useEffect(() => {
-    if (id && imageURL && brand && category && name && price) {
-      setIsLoadingMain(false)
-    }
-  }, [])
-
   const [isLoading, setIsLoading] = useState(false)
-  const [isLoadingMain, setIsLoadingMain] = useState(true)
   const user = useSelector((state: any) => state.auth.user)
   const cartItems = useSelector((state: any) => state.cart.items)
   const router = useRouter()
@@ -275,7 +268,6 @@ export default function ProductById({ id, imageURL, brand, category, name, price
     (item) => item.itemId === id
   )
   const isInCart = !!cartItem
-  // console.log('isLoadingMain ', isLoadingMain);
 
   const addToCartHandler = () => {
     if (user) {
@@ -314,7 +306,7 @@ export default function ProductById({ id, imageURL, brand, category, name, price
     }
   }
 
-  return (isLoadingMain ? <Loading /> : (
+  return (
     <>
       <MainNav>
         <Link href="/">Home</Link>
@@ -350,7 +342,6 @@ export default function ProductById({ id, imageURL, brand, category, name, price
         </div>
       </Div>
     </>
-  )
   )
 }
 

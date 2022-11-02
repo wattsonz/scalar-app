@@ -1,11 +1,14 @@
 import * as React from 'react'
+import { useState } from 'react'
 import { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import styled, { createGlobalStyle } from 'styled-components'
+import Router from 'next/router'
 
 import { store } from '../store/store'
 import NavBar from '../components/NavBar'
 import ReduxFirebaseProvider from '../components/ReduxFirebaseProvider'
+import Loading from '../components/Loading'
 
 interface Props { }
 
@@ -37,6 +40,14 @@ const Container = styled.div`
 `
 
 function _app({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+  const [loading, setLoading] = useState(false)
+  Router.events.on('routeChangeStart', (url) => {
+    setLoading(true)
+  })
+
+  Router.events.on('routeChangeComplete', (url) => {
+    setLoading(false)
+  })
 
   return (
     <>
@@ -45,7 +56,7 @@ function _app({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         <Provider store={store}>
           <ReduxFirebaseProvider>
             <NavBar />
-            <Component {...pageProps} />
+            {!loading ? <Component {...pageProps} /> : <Loading />}
           </ReduxFirebaseProvider>
         </Provider>
       </Container>

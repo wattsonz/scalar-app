@@ -250,9 +250,7 @@ export default function Cart({ }: Props) {
   }
 
   const priceValue = products.reduce(
-    (prev, cur) => prev + +cur.price * +cur.quantity,
-    0
-  );
+    (prev, cur) => prev + +cur.price * +cur.quantity, 0)
   const totalValue = priceValue
 
   const placeOrderHandler = () => {
