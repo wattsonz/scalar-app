@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
 
   ::-webkit-scrollbar {
     width: .3em;
-    }
+  }
 
   ::-webkit-scrollbar-track {
   background-color: #9e0e0e;
