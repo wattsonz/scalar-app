@@ -28,10 +28,23 @@ const GlobalStyle = createGlobalStyle`
   *::selection {
     background-color: #ffb274;
   }
+
+  ::-webkit-scrollbar {
+    width: .3em;
+    }
+
+  ::-webkit-scrollbar-track {
+  background-color: #9e0e0e;
+  }
+
+  ::-webkit-scrollbar-thumb {
+  background-color: #ffb274;
+  border-radius: 100vw;
+  }
 `
 
 const Container = styled.div`
-  min-height: 100vh;
+  min-height: 105vh;
   max-width: 1440px;
   width: 100%;
   margin: auto;
