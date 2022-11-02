@@ -41,6 +41,14 @@ const GlobalStyle = createGlobalStyle`
   background-color: #ffb274;
   border-radius: 100vw;
   }
+
+  ::-webkit-scrollbar-thumb:hover {
+  background-color: #ce915e;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+  background-color: #9b6d47;
+  }
 `
 
 const Container = styled.div`
