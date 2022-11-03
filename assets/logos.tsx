@@ -22,7 +22,7 @@ export const LogoIcon = () => (
             </linearGradient>
         </defs>
     </svg>
-);
+)
 
 export const CartIcon = () => (
     <svg
@@ -39,7 +39,7 @@ export const CartIcon = () => (
     >
         <g fill="none" fillRule="evenodd" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" transform="translate(4 4)"><path d="m2.42575356.50254623 8.09559774-.00228586c.5209891-.00014706.9548019.39973175.9969972.91900932l.8938128 10.99973961c.0447299.5504704-.3652538 1.0329756-.9157242 1.0777056l-.0809907.0032851h-9.83555122c-.55228475 0-1-.4477152-1-1l.00294679-.076713.84614072-10.99745378c.0400765-.52088193.4743495-.92313949.99677087-.92328699z" /><path d="m9.5 4.5v.64527222c0 1.10456949-1.8954305 1.35472778-3 1.35472778s-3-.3954305-3-1.5v-.5" /></g>
     </svg>
-);
+)
 
 export const UserIcon = () => (
     <svg
@@ -64,7 +64,7 @@ export const UserIcon = () => (
         <path d="M20.474 19.013a8.941 8.941 0 0 0-4.115-4.89 6 6 0 1 0-8.717 0 8.941 8.941 0 0 0-4.115 4.89 11.065 11.065 0 0 0 1.63 1.59 6.965 6.965 0 0 1 4.728-5.275 1 1 0 0 0 .181-1.829 4 4 0 1 1 3.871 0 1 1 0 0 0 .181 1.829 6.965 6.965 0 0 1 4.726 5.272 11.059 11.059 0 0 0 1.63-1.587z" />
 
     </svg>
-);
+)
 
 export const UserIcon2 = () => (
     <svg
@@ -86,7 +86,7 @@ export const UserIcon2 = () => (
         <path d="M20.474 19.013a8.941 8.941 0 0 0-4.115-4.89 6 6 0 1 0-8.717 0 8.941 8.941 0 0 0-4.115 4.89 11.065 11.065 0 0 0 1.63 1.59 6.965 6.965 0 0 1 4.728-5.275 1 1 0 0 0 .181-1.829 4 4 0 1 1 3.871 0 1 1 0 0 0 .181 1.829 6.965 6.965 0 0 1 4.726 5.272 11.059 11.059 0 0 0 1.63-1.587z" />
 
     </svg>
-);
+)
 
 export const CheckIcon = () => (
     <svg
@@ -104,7 +104,7 @@ export const CheckIcon = () => (
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         <path d="M5 12l5 5l10 -10" />
     </svg>
-);
+)
 
 export const CloseIcon = () => (
     <svg
@@ -123,7 +123,7 @@ export const CloseIcon = () => (
         <line x1="18" y1="6" x2="6" y2="18" />
         <line x1="6" y1="6" x2="18" y2="18" />
     </svg>
-);
+)
 
 export const ChevronDownIcon = () => (
     <svg
@@ -141,7 +141,7 @@ export const ChevronDownIcon = () => (
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         <polyline points="6 9 12 15 18 9" />
     </svg>
-);
+)
 
 export const SortIcon = () => (
     <svg
@@ -160,7 +160,7 @@ export const SortIcon = () => (
         <path d="M3 9l4 -4l4 4m-4 -4v14" />
         <path d="M21 15l-4 4l-4 -4m4 4v-14" />
     </svg>
-);
+)
 
 export const FilterIcon = () => (
     <svg
@@ -186,4 +186,4 @@ export const FilterIcon = () => (
         <line x1="18" y1="4" x2="18" y2="5" />
         <line x1="18" y1="9" x2="18" y2="20" />
     </svg>
-);  
+)
