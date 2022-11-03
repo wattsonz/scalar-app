@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { CloseIcon } from '../assets/icons'
+import { CloseIcon } from '../assets/logos'
 
 type Props = {
   closeHandler: any

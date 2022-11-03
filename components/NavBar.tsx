@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useSelector } from 'react-redux'
 import { signOut } from 'firebase/auth'
 
-import { LogoIcon, CartIcon, UserIcon } from '../assets/icons'
+import { LogoIcon, CartIcon, UserIcon } from '../assets/logos'
 import LoginPanel from './LoginPanel'
 import SuperLink from './SuperLink'
 import { auth } from '../utils/firebase-config'

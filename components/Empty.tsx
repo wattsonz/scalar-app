@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { FilterIcon } from '../assets/icons'
+import { FilterIcon } from '../assets/logos'
 
 type Props = {}
 

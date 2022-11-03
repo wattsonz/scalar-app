@@ -52,7 +52,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Container = styled.div`
-  min-height: 105vh;
+  min-height: 101vh;
   max-width: 1440px;
   width: 100%;
   margin: auto;

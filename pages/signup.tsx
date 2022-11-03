@@ -7,7 +7,7 @@ import { doc, setDoc } from 'firebase/firestore'
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 
-import { LogoIcon } from '../assets/icons'
+import { LogoIcon } from '../assets/logos'
 import { validateEmail, validatePassword } from '../utils/formValidate'
 import { auth } from '../utils/firebase-config'
 import { db } from '../utils/firebase-config'

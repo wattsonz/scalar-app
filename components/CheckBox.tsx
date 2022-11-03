@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 
-import { CheckIcon } from '../assets/icons'
+import { CheckIcon } from '../assets/logos'
 import { filterActions } from '../store/slices/filterSlice'
 
 type Props = {

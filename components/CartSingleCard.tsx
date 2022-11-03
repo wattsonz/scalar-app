@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { doc, updateDoc, arrayRemove } from 'firebase/firestore'
 
 import SuperLink from './SuperLink'
-import { ChevronDownIcon, CloseIcon } from '../assets/icons'
+import { ChevronDownIcon, CloseIcon } from '../assets/logos'
 import { db } from '../utils/firebase-config'
 import Modal from './Modal'
 import QuantityPicker from './QuantityPicker'

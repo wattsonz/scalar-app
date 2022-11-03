@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Link from 'next/link'
 
-import { CheckIcon } from '../assets/icons'
+import { CheckIcon } from '../assets/logos'
 
 type Props = {}
 
