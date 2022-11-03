@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* color-scheme: dark; */
   }
 
   body {
@@ -29,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: #ffb274;
   }
 
-  ::-webkit-scrollbar {
+  /* ::-webkit-scrollbar {
     width: .3em;
   }
 
@@ -48,6 +49,20 @@ const GlobalStyle = createGlobalStyle`
 
   ::-webkit-scrollbar-thumb:active {
   background-color: #9b6d47;
+  } */
+
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+      border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
   }
 `
 
