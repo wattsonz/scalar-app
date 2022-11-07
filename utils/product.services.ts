@@ -39,13 +39,13 @@ class ProductService {
     getProductById(pid) {
         let fetched = false
         return new Promise<Array<object>>((resolve, reject) => {
-            const q = query(collection(db, 'products'), where("id", "==", pid));
+            const q = query(collection(db, 'products'), where("id", "==", pid))
             const unsubscribe = onSnapshot(q, (querySnapshot) => {
                 // console.log('unsubscribe')
                 const item = querySnapshot.docs.map((d) => ({ id: d.id, ...d.data() }))
                 if (!fetched) {
-                    fetched = true;
-                    resolve(item);
+                    fetched = true
+                    resolve(item)
                 } else {
                     // console.log('false from product.services')
                 }

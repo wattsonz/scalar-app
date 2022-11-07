@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { type } from 'os';
+import { createSlice } from '@reduxjs/toolkit'
+import { type } from 'os'
 
 // type Cart = {
 //     items: []
@@ -11,11 +11,11 @@ const cartSlice = createSlice({
     },
     reducers: {
         setItems(state, action) {
-            state.items = action.payload;
+            state.items = action.payload
         },
     },
-});
+})
 
-export const cartActions = cartSlice.actions;
+export const cartActions = cartSlice.actions
 
-export default cartSlice.reducer;
+export default cartSlice.reducer
