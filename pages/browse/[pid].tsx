@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import styled, { keyframes } from 'styled-components'
@@ -308,6 +309,9 @@ export default function ProductById({ id, imageURL, brand, category, name, price
 
   return (
     <>
+      <Head>
+        <title>{name}</title>
+      </Head>
       <MainNav>
         <Link href="/">Home</Link>
         {' / '}
