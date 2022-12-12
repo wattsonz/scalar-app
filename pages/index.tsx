@@ -34,7 +34,7 @@ const Div = styled.div`
     margin-top: 30px;
   }
 
-  a {
+  .link {
     display: block;
     margin-top: 40px;
     padding: 14px 42px;
@@ -54,6 +54,17 @@ const Div = styled.div`
     }
   }
 
+  .link-tag {
+    display: block;
+    margin-top: 40px;
+    padding: 2px 10px;
+    text-decoration: none;
+    font-weight: 400;
+    border: none;
+    border-radius: 50px;
+    background: #6db3899c;
+    color: white;
+  }
   span {
   /* position: relative; */
   /* z-index: 3; */
@@ -70,8 +81,8 @@ export default function Home({ }: Props) {
       </Head>
       <Div>
         <p className="title"><span>Never stop, Ever.</span></p>
-        <p className="text">ネバー・ストップ・エバー</p>
-        <Link href="/browse"><a><span>BROWSE</span> NOW</a></Link>
+        <a className="link-tag" href="https://drive.google.com/file/d/1GXgoYJvvw-EyusMRkVIYIiXWQhdIBbd2/view" target="_blank">@wattson</a>
+        <Link href="/browse"><a className="link"><span>BROWSE</span> NOW</a></Link>
       </Div>
     </>
 
